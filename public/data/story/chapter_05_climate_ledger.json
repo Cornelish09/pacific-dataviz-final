@@ -1,0 +1,36 @@
+{
+  "chapter": "The Ledger",
+  "purpose": "Menunjukkan kontribusi emisi per kapita Solomon Islands sebagai bagian dari narasi climate justice.",
+  "records": [
+    {
+      "year": 2000,
+      "ghg_per_capita": 0.9,
+      "ghg_per_capita_source_year": 2000
+    },
+    {
+      "year": 2005,
+      "ghg_per_capita": 1.0,
+      "ghg_per_capita_source_year": 2005
+    },
+    {
+      "year": 2010,
+      "ghg_per_capita": 1.1,
+      "ghg_per_capita_source_year": 2010
+    },
+    {
+      "year": 2015,
+      "ghg_per_capita": 0.9,
+      "ghg_per_capita_source_year": 2015
+    },
+    {
+      "year": 2020,
+      "ghg_per_capita": 0.8,
+      "ghg_per_capita_source_year": 2020
+    },
+    {
+      "year": 2023,
+      "ghg_per_capita": 0.7,
+      "ghg_per_capita_source_year": 2023
+    }
+  ]
+}

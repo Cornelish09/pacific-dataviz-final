@@ -1,0 +1,187 @@
+{
+  "project_title": "The Disappearing Line",
+  "protagonist": "Solomon Islands",
+  "format": "interactive scrollytelling",
+  "design_status": "not final",
+  "purpose": "Menentukan isi visual, urutan cerita, data, interaksi, dan insight sebelum masuk ke desain final.",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "The Line",
+      "role_in_story": "Opening hook",
+      "main_question": "Bagaimana garis pantai Solomon Islands berubah dari waktu ke waktu?",
+      "visual_type": "Interactive coastline map",
+      "data_file": "public/data/story/chapter_01_line_coastline.geojson",
+      "required_fields": [
+        "year",
+        "certainty",
+        "eez_territory",
+        "geometry"
+      ],
+      "visual_encoding": {
+        "map_layer": "coastline geometry",
+        "color_current_year": "solid dark teal",
+        "color_previous_year": "dashed warm orange",
+        "time": "year slider or scroll step",
+        "comparison": "selected year versus previous snapshot"
+      },
+      "interaction": [
+        "User dapat memilih tahun",
+        "User dapat membandingkan tahun terpilih dengan snapshot sebelumnya",
+        "Map otomatis fokus ke Solomon Islands",
+        "Tooltip menampilkan tahun, territory, dan certainty"
+      ],
+      "main_takeaway": "Garis pantai adalah batas hidup masyarakat kepulauan, bukan sekadar garis geografis.",
+      "avoid_claims": [
+        "Jangan mengatakan semua pulau tenggelam",
+        "Jangan mengatakan semua garis pantai menyusut",
+        "Jangan menyimpulkan penyebab tunggal dari perubahan coastline"
+      ],
+      "development_priority": "highest"
+    },
+    {
+      "id": 2,
+      "title": "The Water",
+      "role_in_story": "Climate pressure context",
+      "main_question": "Apa tekanan iklim yang terjadi di sekitar Solomon Islands?",
+      "visual_type": "Dual line chart or synced metric panel",
+      "data_file": "public/data/story/chapter_02_water_context.json",
+      "required_fields": [
+        "year",
+        "sea_level",
+        "sst"
+      ],
+      "visual_encoding": {
+        "x_axis": "year",
+        "y_axis_1": "sea_level anomaly",
+        "y_axis_2": "sea surface temperature anomaly",
+        "highlight": "selected year from coastline timeline"
+      },
+      "interaction": [
+        "Saat tahun di peta berubah, nilai sea level dan SST ikut disorot",
+        "Hover menampilkan nilai dan source year",
+        "Chart tidak berdiri sendiri, tetapi mengikuti narasi peta"
+      ],
+      "main_takeaway": "Perubahan wilayah pesisir terjadi dalam konteks tekanan laut dan suhu permukaan laut.",
+      "avoid_claims": [
+        "Jangan menyatakan sea level adalah satu-satunya penyebab perubahan coastline",
+        "Jangan membuat korelasi sebagai kausalitas mutlak"
+      ],
+      "development_priority": "high"
+    },
+    {
+      "id": 3,
+      "title": "The Exposure",
+      "role_in_story": "Human relevance bridge",
+      "main_question": "Mengapa perubahan garis pantai penting bagi manusia?",
+      "visual_type": "Annotated coastline map",
+      "data_file": "public/data/story/chapter_01_line_coastline.geojson",
+      "required_fields": [
+        "year",
+        "geometry"
+      ],
+      "visual_encoding": {
+        "base": "coastline map",
+        "annotation": "coastal exposure, inundation risk, habitability",
+        "focus": "risk framing rather than land loss claim"
+      },
+      "interaction": [
+        "Scroll step memberi anotasi pada wilayah pesisir",
+        "Narasi menjelaskan konsekuensi perubahan garis bagi rumah, jalan, air, dan ekonomi lokal",
+        "Tidak wajib memakai dataset baru pada tahap awal"
+      ],
+      "main_takeaway": "Masalah utamanya bukan hanya garis berubah, tetapi ruang hidup pesisir menjadi semakin terekspos risiko.",
+      "avoid_claims": [
+        "Jangan mengklaim lokasi spesifik terdampak jika belum ada data penduduk/infrastruktur",
+        "Jangan membuat proyeksi banjir masa depan tanpa metode"
+      ],
+      "development_priority": "medium"
+    },
+    {
+      "id": 4,
+      "title": "The Human Cost",
+      "role_in_story": "Impact evidence",
+      "main_question": "Apa dampak bencana terhadap masyarakat dan ekonomi?",
+      "visual_type": "Bar chart or lollipop chart",
+      "data_file": "public/data/story/chapter_04_human_cost.json",
+      "required_fields": [
+        "year",
+        "affected_persons",
+        "economic_loss"
+      ],
+      "visual_encoding": {
+        "x_axis": "year",
+        "bar_1": "affected persons",
+        "bar_2": "economic loss",
+        "label": "source year if nearest year is used"
+      },
+      "interaction": [
+        "Hover menampilkan affected persons dan economic loss",
+        "Selected year dari timeline dapat menyorot bar yang sama",
+        "Narasi menjelaskan bahwa dampak climate-related disaster bersifat sosial dan ekonomi"
+      ],
+      "main_takeaway": "Perubahan iklim bukan hanya persoalan lingkungan, tetapi juga persoalan manusia dan ekonomi.",
+      "avoid_claims": [
+        "Jangan menyatakan semua bencana disebabkan langsung oleh climate change",
+        "Jangan menggabungkan affected persons dan economic loss dalam satu skala tanpa penjelasan"
+      ],
+      "development_priority": "high"
+    },
+    {
+      "id": 5,
+      "title": "The Ledger",
+      "role_in_story": "Climate justice",
+      "main_question": "Apakah pihak yang terdampak adalah pihak yang paling besar berkontribusi terhadap emisi?",
+      "visual_type": "GHG emissions per capita timeline",
+      "data_file": "public/data/story/chapter_05_climate_ledger.json",
+      "required_fields": [
+        "year",
+        "ghg_per_capita"
+      ],
+      "visual_encoding": {
+        "x_axis": "year",
+        "y_axis": "GHG emissions per capita",
+        "annotation": "low contribution versus high exposure framing"
+      },
+      "interaction": [
+        "Hover menampilkan nilai emisi per kapita",
+        "Highlight tahun yang sama dengan chapter sebelumnya",
+        "Narasi masuk ke climate justice"
+      ],
+      "main_takeaway": "Wilayah kepulauan kecil sering berada di garis depan risiko iklim meskipun kontribusi emisinya relatif kecil.",
+      "avoid_claims": [
+        "Jangan membandingkan keadilan iklim tanpa konteks",
+        "Jangan menyalahkan negara tertentu tanpa data pembanding yang jelas"
+      ],
+      "development_priority": "medium"
+    },
+    {
+      "id": 6,
+      "title": "What Holds",
+      "role_in_story": "Closing and resilience",
+      "main_question": "Apa yang bisa memperkuat ketahanan wilayah kepulauan?",
+      "visual_type": "Renewable energy share timeline",
+      "data_file": "public/data/story/chapter_06_resilience.json",
+      "required_fields": [
+        "year",
+        "renewable_energy"
+      ],
+      "visual_encoding": {
+        "x_axis": "year",
+        "y_axis": "renewable energy share",
+        "tone": "resilience, adaptation, not fatalism"
+      },
+      "interaction": [
+        "Hover menampilkan renewable energy share",
+        "Narasi penutup mengarah ke adaptasi dan ketahanan",
+        "Tidak dibuat sebagai klaim solusi tunggal"
+      ],
+      "main_takeaway": "Cerita tidak berhenti pada krisis, tetapi pada ketahanan, adaptasi, dan tindakan berbasis data.",
+      "avoid_claims": [
+        "Jangan mengatakan renewable energy sendirian menyelesaikan krisis pesisir",
+        "Jangan membuat narasi terlalu optimistik tanpa batasan"
+      ],
+      "development_priority": "medium"
+    }
+  ]
+}

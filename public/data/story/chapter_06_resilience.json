@@ -1,0 +1,36 @@
+{
+  "chapter": "What Holds",
+  "purpose": "Menampilkan renewable energy share sebagai konteks ketahanan dan transisi energi.",
+  "records": [
+    {
+      "year": 2000,
+      "renewable_energy": 55.26,
+      "renewable_energy_source_year": 2000
+    },
+    {
+      "year": 2005,
+      "renewable_energy": 49.7,
+      "renewable_energy_source_year": 2005
+    },
+    {
+      "year": 2010,
+      "renewable_energy": 45.07,
+      "renewable_energy_source_year": 2010
+    },
+    {
+      "year": 2015,
+      "renewable_energy": 48.64,
+      "renewable_energy_source_year": 2015
+    },
+    {
+      "year": 2020,
+      "renewable_energy": 49.03,
+      "renewable_energy_source_year": 2020
+    },
+    {
+      "year": 2023,
+      "renewable_energy": 50.08,
+      "renewable_energy_source_year": 2022
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "project_title": "The Disappearing Line",
+  "protagonist": "Solomon Islands",
+  "territory_code": "SLB",
+  "mode": "interactive scrollytelling",
+  "main_warning": "Do not claim that all islands are sinking or that every coastline is shrinking.",
+  "chapters": [
+    {
+      "id": 1,
+      "slug": "the-line",
+      "title": "The Line",
+      "question": "Bagaimana garis pantai Solomon Islands berubah dari waktu ke waktu?",
+      "visual": "Interactive coastline map",
+      "data_file": "public/data/story/chapter_01_line_coastline.geojson",
+      "main_fields": [
+        "year",
+        "certainty",
+        "eez_territory",
+        "geometry"
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "the-water",
+      "title": "The Water",
+      "question": "Apa tekanan iklim yang terjadi di sekitar wilayah ini?",
+      "visual": "Line chart for sea level anomaly and SST anomaly",
+      "data_file": "public/data/story/chapter_02_water_context.json",
+      "main_fields": [
+        "year",
+        "sea_level",
+        "sst"
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "the-exposure",
+      "title": "The Exposure",
+      "question": "Mengapa perubahan garis pantai penting bagi manusia?",
+      "visual": "Coastline map plus narrative annotation",
+      "data_file": "public/data/story/chapter_01_line_coastline.geojson",
+      "main_fields": [
+        "year",
+        "geometry"
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "the-human-cost",
+      "title": "The Human Cost",
+      "question": "Apa dampak bencana terhadap masyarakat dan ekonomi?",
+      "visual": "Bar or lollipop chart for affected persons and economic loss",
+      "data_file": "public/data/story/chapter_04_human_cost.json",
+      "main_fields": [
+        "year",
+        "affected_persons",
+        "economic_loss"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "the-ledger",
+      "title": "The Ledger",
+      "question": "Apakah pihak yang terdampak adalah pihak yang paling besar berkontribusi terhadap emisi?",
+      "visual": "GHG emissions per capita timeline",
+      "data_file": "public/data/story/chapter_05_climate_ledger.json",
+      "main_fields": [
+        "year",
+        "ghg_per_capita"
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "what-holds",
+      "title": "What Holds",
+      "question": "Apa yang bisa memperkuat ketahanan wilayah kepulauan?",
+      "visual": "Renewable energy share timeline",
+      "data_file": "public/data/story/chapter_06_resilience.json",
+      "main_fields": [
+        "year",
+        "renewable_energy"
+      ]
+    }
+  ]
+}

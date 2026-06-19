@@ -1,0 +1,71 @@
+{
+  "project_title": "The Disappearing Line",
+  "protagonist": "Solomon Islands",
+  "purpose": "Kumpulan insight berbasis data untuk membantu penulisan narasi setiap chapter.",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "The Line",
+      "main_visual": "Coastline timeline map",
+      "main_insight": "Garis pantai dipakai sebagai visual utama untuk menunjukkan bahwa batas antara darat dan laut adalah elemen penting bagi kehidupan masyarakat kepulauan.",
+      "careful_framing": "Visual coastline tidak boleh langsung dibaca sebagai bukti bahwa semua pulau menyusut atau tenggelam. Gunakan framing perubahan garis pantai, exposure, dan habitability.",
+      "data_note": "Data berasal dari Landsat Coastlines yang telah difilter untuk Solomon Islands."
+    },
+    {
+      "id": 2,
+      "title": "The Water",
+      "main_visual": "Sea level anomaly and SST anomaly chart",
+      "main_insights": [
+        "Sea level anomaly relatif stabil dari 0.100 m pada 2000 menjadi 0.100 m pada 2023.",
+        "Nilai tertinggi sea level anomaly pada tahun pilihan terjadi pada 2000, dengan nilai 0.100 m.",
+        "SST anomaly meningkat dari 0.30 °C pada 2000 menjadi 0.60 °C pada 2023.",
+        "Nilai tertinggi SST anomaly pada tahun pilihan terjadi pada 2020, dengan nilai 0.80 °C."
+      ],
+      "source_year_note": {
+        "sea_level": "2000→2000, 2005→2005, 2010→2010, 2015→2015, 2020→2020, 2023→2023",
+        "sst": "2000→2000, 2005→2005, 2010→2010, 2015→2015, 2020→2020, 2023→2023"
+      },
+      "careful_framing": "Sea level dan SST memberi konteks tekanan iklim, tetapi tidak boleh ditulis sebagai satu-satunya penyebab perubahan garis pantai."
+    },
+    {
+      "id": 4,
+      "title": "The Human Cost",
+      "main_visual": "Affected persons and economic loss chart",
+      "main_insights": [
+        "Nilai tertinggi jumlah orang terdampak bencana pada tahun pilihan terjadi pada 2015, dengan nilai 185,886 orang.",
+        "Nilai tertinggi kerugian ekonomi langsung pada tahun pilihan terjadi pada 2015, dengan nilai 12,626,951."
+      ],
+      "source_year_note": {
+        "affected_persons": "2000→2006, 2005→2006, 2010→2010, 2015→2015, 2020→2020, 2023→2022",
+        "economic_loss": "2000→2010, 2005→2010, 2010→2010, 2015→2013, 2020→2013, 2023→2013"
+      },
+      "careful_framing": "Data bencana dipakai sebagai konteks dampak manusia dan ekonomi. Jangan menyatakan bahwa seluruh bencana dalam data disebabkan langsung oleh perubahan iklim."
+    },
+    {
+      "id": 5,
+      "title": "The Ledger",
+      "main_visual": "GHG emissions per capita timeline",
+      "main_insights": [
+        "GHG emissions per capita menurun dari 0.90 pada 2000 menjadi 0.70 pada 2023.",
+        "Nilai tertinggi GHG emissions per capita pada tahun pilihan terjadi pada 2010, dengan nilai 1.10."
+      ],
+      "source_year_note": {
+        "ghg_per_capita": "2000→2000, 2005→2005, 2010→2010, 2015→2015, 2020→2020, 2023→2023"
+      },
+      "careful_framing": "Bagian ini dipakai untuk climate justice. Jangan menyalahkan pihak tertentu tanpa data pembanding yang jelas."
+    },
+    {
+      "id": 6,
+      "title": "What Holds",
+      "main_visual": "Renewable energy share timeline",
+      "main_insights": [
+        "renewable energy share menurun dari 55.26% pada 2000 menjadi 50.08% pada 2023.",
+        "Nilai tertinggi renewable energy share pada tahun pilihan terjadi pada 2000, dengan nilai 55.26%."
+      ],
+      "source_year_note": {
+        "renewable_energy": "2000→2000, 2005→2005, 2010→2010, 2015→2015, 2020→2020, 2023→2022"
+      },
+      "careful_framing": "Renewable energy dipakai sebagai konteks ketahanan dan transisi, bukan solusi tunggal untuk seluruh risiko pesisir."
+    }
+  ]
+}

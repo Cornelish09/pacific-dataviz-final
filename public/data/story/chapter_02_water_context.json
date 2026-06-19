@@ -1,0 +1,48 @@
+{
+  "chapter": "The Water",
+  "purpose": "Menjelaskan tekanan iklim di sekitar Solomon Islands melalui sea level anomaly dan sea surface temperature anomaly.",
+  "records": [
+    {
+      "year": 2000,
+      "sea_level": 0.1,
+      "sea_level_source_year": 2000,
+      "sst": 0.3,
+      "sst_source_year": 2000
+    },
+    {
+      "year": 2005,
+      "sea_level": 0.0,
+      "sea_level_source_year": 2005,
+      "sst": 0.5,
+      "sst_source_year": 2005
+    },
+    {
+      "year": 2010,
+      "sea_level": 0.0,
+      "sea_level_source_year": 2010,
+      "sst": 0.4,
+      "sst_source_year": 2010
+    },
+    {
+      "year": 2015,
+      "sea_level": 0.0,
+      "sea_level_source_year": 2015,
+      "sst": 0.1,
+      "sst_source_year": 2015
+    },
+    {
+      "year": 2020,
+      "sea_level": 0.1,
+      "sea_level_source_year": 2020,
+      "sst": 0.8,
+      "sst_source_year": 2020
+    },
+    {
+      "year": 2023,
+      "sea_level": 0.1,
+      "sea_level_source_year": 2023,
+      "sst": 0.6,
+      "sst_source_year": 2023
+    }
+  ]
+}

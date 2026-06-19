@@ -1,0 +1,292 @@
+{
+  "project_title": "The Disappearing Line",
+  "subtitle": "A data story about Solomon Islands, coastline change, climate pressure, human cost, climate justice, and resilience.",
+  "protagonist": "Solomon Islands",
+  "territory_code": "SLB",
+  "format": "interactive scrollytelling web prototype",
+  "core_message": "Garis pantai bukan sekadar batas geografis. Di wilayah kepulauan Pasifik, garis ini berhubungan dengan rumah, akses, ekonomi lokal, risiko bencana, dan masa depan masyarakat pesisir.",
+  "scientific_position": "Project ini tidak menyatakan bahwa semua pulau tenggelam atau semua garis pantai menyusut. Narasi diarahkan pada coastline change, coastal exposure, inundation risk, habitability, human cost, climate justice, dan resilience.",
+  "selected_years": [
+    2000,
+    2005,
+    2010,
+    2015,
+    2020,
+    2023
+  ],
+  "chapters": [
+    {
+      "id": 1,
+      "slug": "the-line",
+      "title": "The Line",
+      "question": "Bagaimana garis pantai Solomon Islands berubah dari waktu ke waktu?",
+      "visual_role": "Interactive coastline timeline map",
+      "dataset_used": [
+        "Landsat Coastlines"
+      ],
+      "data_files": [
+        "public/data/story/chapter_01_line_coastline.geojson"
+      ],
+      "main_insight": "Garis pantai dipakai sebagai visual utama karena di wilayah kepulauan, batas antara darat dan laut berhubungan langsung dengan ruang hidup, akses, infrastruktur, dan risiko pesisir.",
+      "takeaway": "The coast is not just a line; it is where geography becomes livelihood.",
+      "guardrail": "Jangan menyatakan bahwa semua pulau tenggelam atau seluruh garis pantai menyusut. Visual ini menunjukkan snapshot perubahan garis pantai, bukan klaim tunggal tentang kehilangan daratan."
+    },
+    {
+      "id": 2,
+      "slug": "the-water",
+      "title": "The Water",
+      "question": "Apa tekanan iklim yang terjadi di sekitar Solomon Islands?",
+      "visual_role": "Sea level anomaly and SST anomaly chart",
+      "dataset_used": [
+        "Sea level anomalies",
+        "Mean sea surface temperature anomalies"
+      ],
+      "data_files": [
+        "public/data/story/chapter_02_water_context.json"
+      ],
+      "main_insight": "Sea level anomaly relatif stabil dari 0.100 m pada 2000 menjadi 0.100 m pada 2023. SST anomaly meningkat dari 0.30 °C pada 2000 menjadi 0.60 °C pada 2023.",
+      "secondary_insight": [
+        "Nilai tertinggi sea level anomaly pada tahun pilihan terjadi pada 2000, dengan nilai 0.100 m.",
+        "Nilai tertinggi SST anomaly pada tahun pilihan terjadi pada 2020, dengan nilai 0.80 °C."
+      ],
+      "takeaway": "The coastline is changing within a changing ocean.",
+      "guardrail": "Sea level dan SST adalah konteks tekanan iklim, tetapi tidak boleh ditulis sebagai satu-satunya penyebab perubahan garis pantai.",
+      "source_year_map": {
+        "sea_level": [
+          {
+            "selected_year": 2000,
+            "source_year": 2000
+          },
+          {
+            "selected_year": 2005,
+            "source_year": 2005
+          },
+          {
+            "selected_year": 2010,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2015,
+            "source_year": 2015
+          },
+          {
+            "selected_year": 2020,
+            "source_year": 2020
+          },
+          {
+            "selected_year": 2023,
+            "source_year": 2023
+          }
+        ],
+        "sst": [
+          {
+            "selected_year": 2000,
+            "source_year": 2000
+          },
+          {
+            "selected_year": 2005,
+            "source_year": 2005
+          },
+          {
+            "selected_year": 2010,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2015,
+            "source_year": 2015
+          },
+          {
+            "selected_year": 2020,
+            "source_year": 2020
+          },
+          {
+            "selected_year": 2023,
+            "source_year": 2023
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "slug": "the-exposure",
+      "title": "The Exposure",
+      "question": "Mengapa perubahan garis pantai penting bagi manusia?",
+      "visual_role": "Annotated coastline map and narrative bridge",
+      "dataset_used": [
+        "Landsat Coastlines",
+        "Narrative framing: coastal exposure, inundation risk, habitability"
+      ],
+      "data_files": [
+        "public/data/story/chapter_01_line_coastline.geojson"
+      ],
+      "main_insight": "Bagian ini mengubah pembacaan dari sekadar bentuk garis pantai menjadi risiko terhadap ruang hidup pesisir. Perubahan pada batas pesisir dapat memengaruhi akses, permukiman, air, jalan, dan ekonomi lokal.",
+      "takeaway": "Exposure turns geography into risk.",
+      "guardrail": "Jangan mengklaim lokasi spesifik terdampak jika belum ada data penduduk, bangunan, atau infrastruktur yang dipetakan secara eksplisit."
+    },
+    {
+      "id": 4,
+      "slug": "the-human-cost",
+      "title": "The Human Cost",
+      "question": "Apa dampak bencana terhadap masyarakat dan ekonomi?",
+      "visual_role": "Affected persons and direct economic loss chart",
+      "dataset_used": [
+        "Number of directly affected persons attributed to disasters",
+        "Direct disaster economic loss"
+      ],
+      "data_files": [
+        "public/data/story/chapter_04_human_cost.json"
+      ],
+      "main_insight": "Nilai tertinggi jumlah orang terdampak bencana pada tahun pilihan terjadi pada 2015, dengan nilai 185,886 orang. Nilai tertinggi kerugian ekonomi langsung pada tahun pilihan terjadi pada 2015, dengan nilai 12,626,951.",
+      "takeaway": "Climate pressure becomes human and economic cost.",
+      "guardrail": "Data bencana dipakai sebagai konteks dampak manusia dan ekonomi. Jangan menyatakan bahwa seluruh bencana dalam dataset disebabkan langsung oleh perubahan iklim.",
+      "source_year_map": {
+        "affected_persons": [
+          {
+            "selected_year": 2000,
+            "source_year": 2006
+          },
+          {
+            "selected_year": 2005,
+            "source_year": 2006
+          },
+          {
+            "selected_year": 2010,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2015,
+            "source_year": 2015
+          },
+          {
+            "selected_year": 2020,
+            "source_year": 2020
+          },
+          {
+            "selected_year": 2023,
+            "source_year": 2022
+          }
+        ],
+        "economic_loss": [
+          {
+            "selected_year": 2000,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2005,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2010,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2015,
+            "source_year": 2013
+          },
+          {
+            "selected_year": 2020,
+            "source_year": 2013
+          },
+          {
+            "selected_year": 2023,
+            "source_year": 2013
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "slug": "the-ledger",
+      "title": "The Ledger",
+      "question": "Apakah wilayah yang terdampak adalah wilayah yang paling besar berkontribusi terhadap emisi?",
+      "visual_role": "GHG emissions per capita timeline",
+      "dataset_used": [
+        "GHG emissions per capita"
+      ],
+      "data_files": [
+        "public/data/story/chapter_05_climate_ledger.json"
+      ],
+      "main_insight": "GHG emissions per capita menurun dari 0.90 pada 2000 menjadi 0.70 pada 2023.",
+      "secondary_insight": [
+        "Nilai tertinggi GHG emissions per capita pada tahun pilihan terjadi pada 2010, dengan nilai 1.10."
+      ],
+      "takeaway": "Those at risk are not always those most responsible.",
+      "guardrail": "Gunakan bagian ini untuk climate justice secara hati-hati. Jangan menyalahkan pihak tertentu tanpa data pembanding yang jelas.",
+      "source_year_map": {
+        "ghg_per_capita": [
+          {
+            "selected_year": 2000,
+            "source_year": 2000
+          },
+          {
+            "selected_year": 2005,
+            "source_year": 2005
+          },
+          {
+            "selected_year": 2010,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2015,
+            "source_year": 2015
+          },
+          {
+            "selected_year": 2020,
+            "source_year": 2020
+          },
+          {
+            "selected_year": 2023,
+            "source_year": 2023
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "slug": "what-holds",
+      "title": "What Holds",
+      "question": "Apa yang bisa memperkuat ketahanan wilayah kepulauan?",
+      "visual_role": "Renewable energy share timeline",
+      "dataset_used": [
+        "Renewable energy share"
+      ],
+      "data_files": [
+        "public/data/story/chapter_06_resilience.json"
+      ],
+      "main_insight": "Renewable energy share menurun dari 55.26% pada 2000 menjadi 50.08% pada 2023.",
+      "secondary_insight": [
+        "Nilai tertinggi Renewable energy share pada tahun pilihan terjadi pada 2000, dengan nilai 55.26%."
+      ],
+      "takeaway": "The story should not end in loss, but in resilience and action.",
+      "guardrail": "Renewable energy dipakai sebagai konteks ketahanan dan transisi. Jangan menyatakan bahwa renewable energy sendirian menyelesaikan seluruh risiko pesisir.",
+      "source_year_map": {
+        "renewable_energy": [
+          {
+            "selected_year": 2000,
+            "source_year": 2000
+          },
+          {
+            "selected_year": 2005,
+            "source_year": 2005
+          },
+          {
+            "selected_year": 2010,
+            "source_year": 2010
+          },
+          {
+            "selected_year": 2015,
+            "source_year": 2015
+          },
+          {
+            "selected_year": 2020,
+            "source_year": 2020
+          },
+          {
+            "selected_year": 2023,
+            "source_year": 2022
+          }
+        ]
+      }
+    }
+  ]
+}
