@@ -12475,9 +12475,318 @@
     }
   </style>
 
+
+
+  <style id="design-v11-awam-readable">
+    :root {
+      --bottom-timeline: 98px;
+      --side-width: 292px;
+      --right-width: 306px;
+    }
+
+    .micro-btn.active {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .story-rail {
+      min-height: 0;
+      overflow: visible;
+    }
+
+    .story-card {
+      overflow: auto;
+      padding-bottom: 28px;
+      scrollbar-width: thin;
+      overscroll-behavior: contain;
+    }
+
+    .story-hint {
+      margin-top: 14px;
+      flex-shrink: 0;
+      background: rgba(184, 104, 80, 0.12);
+    }
+
+    body.scene-hero .story-card h1 {
+      font-size: clamp(44px, 6vh, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    body.scene-hero .story-card p {
+      font-size: clamp(15px, 1.75vh, 20px);
+      line-height: 1.62;
+    }
+
+    body.scene-hero .plain-row span {
+      font-size: clamp(14px, 1.58vh, 17px);
+      line-height: 1.55;
+    }
+
+    .reader-guide {
+      position: absolute;
+      top: 14px;
+      left: 70px;
+      z-index: 34;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      max-width: min(520px, calc(100% - 360px));
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(251, 247, 236, 0.84);
+      border: 1px solid rgba(21, 32, 51, 0.14);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    body.guide-mode .reader-guide {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reader-guide b,
+    .island-picker span {
+      color: var(--muted);
+      font-size: 8.5px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .reader-guide span {
+      color: var(--ink-soft);
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+      padding: 5px 7px;
+      border-radius: 999px;
+      background: rgba(36, 78, 92, 0.07);
+    }
+
+    .island-picker {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 35;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      max-width: min(520px, calc(100% - 110px));
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(251, 247, 236, 0.86);
+      border: 1px solid rgba(21, 32, 51, 0.14);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .island-picker::-webkit-scrollbar {
+      display: none;
+    }
+
+    .island-picker button {
+      flex: 0 0 auto;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(36, 78, 92, 0.07);
+      color: var(--ink-soft);
+      border: 1px solid transparent;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .island-picker button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(21, 32, 51, 0.16);
+    }
+
+    .island-picker button.active {
+      background: var(--coast);
+      color: var(--paper);
+      border-color: var(--coast);
+    }
+
+    .map-callout {
+      bottom: 18px;
+      left: 18px;
+      max-width: 410px;
+    }
+
+    body.scene-exposure .metric-card {
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    body.scene-exposure .metric-value {
+      font-size: clamp(24px, 2.2vw, 38px);
+      letter-spacing: -0.045em;
+    }
+
+    body.scene-exposure .chart-stage {
+      height: clamp(220px, 33vh, 300px);
+    }
+
+    body.scene-exposure .metric-title strong {
+      max-width: 150px;
+    }
+
+    svg .axis-label {
+      font-family: var(--sans);
+    }
+
+    .scroll-scene[data-scene="closing"] {
+      min-height: 118vh;
+      display: grid;
+      place-items: center;
+      padding: 18vh 24px 20vh;
+    }
+
+    .end-card {
+      width: min(860px, calc(100vw - 56px));
+      padding: clamp(28px, 4vw, 46px);
+      border-radius: 34px;
+      background: rgba(251, 247, 236, 0.92);
+      color: var(--ink);
+      border: 1px solid rgba(21, 32, 51, 0.12);
+      box-shadow: 0 34px 100px rgba(21, 32, 51, 0.14);
+      backdrop-filter: blur(18px);
+      opacity: 0.22;
+      transform: translateY(34px) scale(0.975);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.75s ease;
+    }
+
+    body.scene-closing .end-card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: 0 42px 120px rgba(21, 32, 51, 0.18);
+    }
+
+    .end-label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(36, 78, 92, 0.08);
+      color: var(--coast);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .end-card h2 {
+      color: var(--ink);
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.96;
+    }
+
+    .end-card p {
+      max-width: 720px;
+      color: var(--ink-soft);
+      font-size: clamp(14px, 1.3vw, 18px);
+      line-height: 1.7;
+    }
+
+    .end-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .end-points span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(21, 32, 51, 0.055);
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(21, 32, 51, 0.08);
+    }
+
+    @media (max-width: 1360px) {
+      body.scene-hero .story-card h1 {
+        font-size: clamp(38px, 5.4vh, 62px);
+      }
+
+      .reader-guide {
+        max-width: min(410px, calc(100% - 320px));
+      }
+    }
+
+    @media (max-width: 1180px) {
+      body.scene-hero .story-card h1 {
+        font-size: clamp(31px, 4.7vh, 50px);
+      }
+
+      body.scene-hero .story-card p,
+      body.scene-hero .plain-row span {
+        font-size: 13px;
+      }
+
+      .reader-guide {
+        left: 62px;
+        max-width: min(350px, calc(100% - 280px));
+      }
+
+      .reader-guide span:nth-of-type(3) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .reader-guide,
+      .island-picker {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        max-width: none;
+        margin: 10px;
+        border-radius: 18px;
+        flex-wrap: wrap;
+      }
+
+      .map-viewport {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #map,
+      #atlasCanvas,
+      .focus-vignette {
+        position: absolute;
+      }
+
+      .map-callout {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        width: calc(100% - 24px);
+      }
+
+      .end-card {
+        width: min(720px, calc(100vw - 28px));
+      }
+    }
+  </style>
+
 </head>
 
-<body class="scene-hero">
+<body class="scene-hero guide-mode">
   <div id="loadingScreen" class="loading-screen">
     <div class="loading-card">
       <h1>Preparing the atlas stage</h1>
@@ -12500,6 +12809,7 @@
       <div id="sceneChip" class="scene-chip">Opening</div>
 
       <div class="top-actions">
+        <button id="guideModeBtn" class="micro-btn active" type="button">Guide mode</button>
         <button id="mapFocusBtn" class="micro-btn" type="button">Focus map</button>
         <button id="nextSceneBtn" class="micro-btn" type="button">Next scene</button>
       </div>
@@ -12544,6 +12854,23 @@
           <div id="map"></div>
           <canvas id="atlasCanvas"></canvas>
           <div class="focus-vignette"></div>
+
+          <div id="readerGuide" class="reader-guide" aria-label="How to read this visualization">
+            <b>How to read</b>
+            <span>1. Pick a year</span>
+            <span>2. Focus an island</span>
+            <span>3. Read the evidence cards</span>
+          </div>
+
+          <div id="islandPicker" class="island-picker" aria-label="Choose island focus">
+            <span>Focus island</span>
+            <button class="active" type="button" data-island="all">All</button>
+            <button type="button" data-island="guadalcanal">Guadalcanal</button>
+            <button type="button" data-island="malaita">Malaita</button>
+            <button type="button" data-island="western">Western</button>
+            <button type="button" data-island="choiseul">Choiseul</button>
+            <button type="button" data-island="isabel">Santa Isabel</button>
+          </div>
 
           <aside class="map-callout">
             <small id="mapCalloutKicker">Map reading</small>
@@ -12624,8 +12951,15 @@
     <section class="scroll-scene" data-scene="resilience"><div class="scroll-marker"></div></section>
     <section class="scroll-scene" data-scene="closing">
       <div class="end-card">
+        <span class="end-label">Final reading</span>
         <h2>Reading the line is a way to read the future.</h2>
         <p>The Disappearing Line membaca perubahan garis pantai sebagai pintu masuk untuk memahami tekanan laut, exposure, human cost, climate justice, dan resilience.</p>
+        <div class="end-points" aria-label="Story summary">
+          <span>Coastline</span>
+          <span>Ocean pressure</span>
+          <span>Human cost</span>
+          <span>Resilience</span>
+        </div>
       </div>
     </section>
   </main>
@@ -12713,9 +13047,9 @@
         evidenceTitle: "The Exposure",
         evidence: "Bagian ini mengubah pembacaan dari bentuk garis menjadi risiko terhadap ruang hidup pesisir.",
         dataset: "Landsat Coastlines + narrative framing",
-        calloutKicker: "Exposure logic",
-        calloutTitle: "Line to risk",
-        calloutBody: "Risiko muncul saat manusia, jalan, air, dan layanan berada dekat dengan batas pesisir."
+        calloutKicker: "Exposure pathway",
+        calloutTitle: "From coastline to daily life",
+        calloutBody: "Baca urutannya: batas pesisir berubah, ruang hidup makin dekat dengan tekanan, lalu akses dan aktivitas harian ikut terdampak."
       },
       human: {
         order: 4,
@@ -12902,6 +13236,15 @@
         this.haloLayer = null;
         this.activeScene = "hero";
         this.lastFit = false;
+        this.selectedIsland = "all";
+        this.focusAreas = {
+          all: null,
+          guadalcanal: [[-10.1, 158.9], [-9.2, 160.8]],
+          malaita: [[-9.6, 160.5], [-8.1, 161.8]],
+          western: [[-8.9, 156.2], [-7.2, 158.6]],
+          choiseul: [[-7.6, 156.3], [-6.3, 157.8]],
+          isabel: [[-8.6, 158.0], [-7.0, 159.8]]
+        };
       }
 
       styleForScene(scene) {
@@ -12993,8 +13336,29 @@
           }
         }).addTo(this.map);
 
-        if ((fit || !this.lastFit) && this.currentLayer && currentFeatures.length) {
-          this.map.fitBounds(this.currentLayer.getBounds(), {
+        if (this.currentLayer && currentFeatures.length) {
+          this.applyIslandFocus(this.currentLayer, fit);
+        }
+      }
+
+      setIsland(key) {
+        this.selectedIsland = this.focusAreas.hasOwnProperty(key) ? key : "all";
+      }
+
+      applyIslandFocus(layer, fit = false) {
+        const bounds = this.focusAreas[this.selectedIsland];
+
+        if (bounds) {
+          this.map.flyToBounds(bounds, {
+            padding: [34, 34],
+            maxZoom: 9,
+            duration: fit ? 0.65 : 0.42
+          });
+          return;
+        }
+
+        if ((fit || !this.lastFit) && layer && layer.getBounds && layer.getBounds().isValid()) {
+          this.map.fitBounds(layer.getBounds(), {
             padding: [54, 54],
             maxZoom: 8
           });
@@ -13274,46 +13638,128 @@
         });
       }
 
-      exposureDiagram() {
-        const { svg } = this.setup(300, 178);
-        const nodes = [
-          { x: 62, y: 86, label: "Line", color: "#244e5c" },
-          { x: 150, y: 86, label: "People", color: "#d3af63" },
-          { x: 238, y: 86, label: "Risk", color: "#b86850" }
+      exposurePathwayDiagram() {
+        const { svg } = this.setup(340, 230);
+        const steps = [
+          {
+            x: 18,
+            y: 42,
+            w: 142,
+            h: 58,
+            n: "01",
+            title: "Coastline",
+            body: "Batas darat dan laut berubah",
+            color: "#244e5c"
+          },
+          {
+            x: 180,
+            y: 42,
+            w: 142,
+            h: 58,
+            n: "02",
+            title: "Homes & roads",
+            body: "Ruang hidup makin terekspos",
+            color: "#d3af63"
+          },
+          {
+            x: 18,
+            y: 122,
+            w: 142,
+            h: 58,
+            n: "03",
+            title: "Access & water",
+            body: "Akses, air, dan layanan rentan",
+            color: "#b86850"
+          },
+          {
+            x: 180,
+            y: 122,
+            w: 142,
+            h: 58,
+            n: "04",
+            title: "Daily risk",
+            body: "Dampaknya terasa di kehidupan harian",
+            color: "#152033"
+          }
         ];
 
-        for (let i = 0; i < nodes.length - 1; i++) {
-          const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-          line.setAttribute("x1", nodes[i].x + 33);
-          line.setAttribute("x2", nodes[i + 1].x - 33);
-          line.setAttribute("y1", nodes[i].y);
-          line.setAttribute("y2", nodes[i + 1].y);
-          line.setAttribute("stroke", "#152033");
-          line.setAttribute("stroke-width", "3");
+        const make = tag => document.createElementNS("http://www.w3.org/2000/svg", tag);
+
+        const bg = make("rect");
+        bg.setAttribute("x", 8);
+        bg.setAttribute("y", 18);
+        bg.setAttribute("width", 324);
+        bg.setAttribute("height", 184);
+        bg.setAttribute("rx", 24);
+        bg.setAttribute("fill", "rgba(21, 32, 51, 0.035)");
+        bg.setAttribute("stroke", "rgba(21, 32, 51, 0.10)");
+        svg.appendChild(bg);
+
+        const connectors = [
+          [160, 71, 180, 71],
+          [251, 100, 251, 122],
+          [160, 151, 180, 151]
+        ];
+        connectors.forEach(([x1, y1, x2, y2]) => {
+          const line = make("line");
+          line.setAttribute("x1", x1);
+          line.setAttribute("y1", y1);
+          line.setAttribute("x2", x2);
+          line.setAttribute("y2", y2);
+          line.setAttribute("stroke", "rgba(21, 32, 51, 0.34)");
+          line.setAttribute("stroke-width", 3);
           line.setAttribute("stroke-linecap", "round");
           svg.appendChild(line);
-        }
-
-        nodes.forEach(node => {
-          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-          circle.setAttribute("cx", node.x);
-          circle.setAttribute("cy", node.y);
-          circle.setAttribute("r", 32);
-          circle.setAttribute("fill", node.color);
-          svg.appendChild(circle);
-
-          const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-          label.setAttribute("x", node.x);
-          label.setAttribute("y", node.y + 4);
-          label.setAttribute("text-anchor", "middle");
-          label.setAttribute("font-size", "11");
-          label.setAttribute("font-weight", "800");
-          label.setAttribute("fill", "#fbf7ec");
-          label.textContent = node.label;
-          svg.appendChild(label);
         });
 
-        this.text(26, 154, "Risk begins when life sits close to a changing boundary.", "axis-label");
+        steps.forEach(step => {
+          const card = make("rect");
+          card.setAttribute("x", step.x);
+          card.setAttribute("y", step.y);
+          card.setAttribute("width", step.w);
+          card.setAttribute("height", step.h);
+          card.setAttribute("rx", 17);
+          card.setAttribute("fill", "#fbf7ec");
+          card.setAttribute("stroke", "rgba(21, 32, 51, 0.12)");
+          svg.appendChild(card);
+
+          const dot = make("circle");
+          dot.setAttribute("cx", step.x + 26);
+          dot.setAttribute("cy", step.y + 24);
+          dot.setAttribute("r", 15);
+          dot.setAttribute("fill", step.color);
+          svg.appendChild(dot);
+
+          const num = make("text");
+          num.setAttribute("x", step.x + 26);
+          num.setAttribute("y", step.y + 28);
+          num.setAttribute("text-anchor", "middle");
+          num.setAttribute("font-size", "9");
+          num.setAttribute("font-weight", "800");
+          num.setAttribute("fill", "#fbf7ec");
+          num.textContent = step.n;
+          svg.appendChild(num);
+
+          const title = make("text");
+          title.setAttribute("x", step.x + 48);
+          title.setAttribute("y", step.y + 23);
+          title.setAttribute("font-size", "12");
+          title.setAttribute("font-weight", "800");
+          title.setAttribute("fill", "#152033");
+          title.textContent = step.title;
+          svg.appendChild(title);
+
+          const body = make("text");
+          body.setAttribute("x", step.x + 48);
+          body.setAttribute("y", step.y + 41);
+          body.setAttribute("font-size", "9.5");
+          body.setAttribute("font-weight", "700");
+          body.setAttribute("fill", "#69778c");
+          body.textContent = step.body;
+          svg.appendChild(body);
+        });
+
+        this.text(20, 216, "Exposure is a pathway: coastline → access → daily life.", "axis-label");
       }
 
       format(value, decimals = 2) {
@@ -13401,7 +13847,7 @@
           hero: "Interactive coastline timeline",
           line: "Coastline snapshot comparison",
           water: "Coastline with ocean-pressure context",
-          exposure: "Coastline interpreted as exposure boundary",
+          exposure: "Coastline translated into everyday exposure",
           human: "Coastline plus human-cost evidence",
           ledger: "Coastline plus climate-justice evidence",
           resilience: "Coastline plus resilience evidence",
@@ -13439,11 +13885,11 @@
         }
 
         if (scene === "exposure") {
-          Dom.setText("metricKicker", "Exposure logic");
-          Dom.setText("metricTitle", "Boundary to risk");
-          Dom.setText("metricValue", "Line→Risk");
+          Dom.setText("metricKicker", "Exposure pathway");
+          Dom.setText("metricTitle", "How coastline becomes daily risk");
+          Dom.setText("metricValue", "4 steps");
           Dom.id("metricValue").classList.add("risk");
-          this.chart.exposureDiagram();
+          this.chart.exposurePathwayDiagram();
           return;
         }
 
@@ -13482,6 +13928,19 @@
         Dom.setText("metricValue", year);
         Dom.id("metricValue").classList.remove("risk");
         this.chart.lineChart(YEARS.map(y => ({ year: y, value: y })), "value", year, { decimals: 0, className: "series-soft", activeColor: "#244e5c" });
+      }
+
+      initIslandPicker() {
+        const picker = Dom.id("islandPicker");
+        if (!picker) return;
+
+        picker.querySelectorAll("button[data-island]").forEach(button => {
+          button.addEventListener("click", () => {
+            this.mapStage.setIsland(button.dataset.island);
+            picker.querySelectorAll("button[data-island]").forEach(node => node.classList.toggle("active", node === button));
+            this.updateYear(this.yearIndex, true);
+          });
+        });
       }
 
       togglePlay() {
@@ -13615,6 +14074,7 @@
       const ui = new InterfaceController(store, mapStage);
 
       ui.initNav();
+      ui.initIslandPicker();
       ui.setScene("hero");
       ui.updateYear(5, true);
       SceneEngine.init(ui, canvas);
@@ -13627,6 +14087,10 @@
       Dom.id("playBtn").addEventListener("click", () => ui.togglePlay());
       Dom.id("fitBtn").addEventListener("click", () => ui.updateYear(ui.yearIndex, true));
       Dom.id("nextSceneBtn").addEventListener("click", () => SceneEngine.nextScene());
+      Dom.id("guideModeBtn").addEventListener("click", () => {
+        document.body.classList.toggle("guide-mode");
+        Dom.id("guideModeBtn").classList.toggle("active", document.body.classList.contains("guide-mode"));
+      });
 
       Dom.id("mapFocusBtn").addEventListener("click", () => {
         document.body.classList.toggle("focus-map");
@@ -13650,6 +14114,11 @@
 
         if (event.key.toLowerCase() === "m") {
           document.body.classList.toggle("focus-map");
+        }
+
+        if (event.key.toLowerCase() === "g") {
+          document.body.classList.toggle("guide-mode");
+          Dom.id("guideModeBtn").classList.toggle("active", document.body.classList.contains("guide-mode"));
         }
       });
 
