@@ -1,0 +1,24 @@
+{
+  "task1": {
+    "model": "Ridge",
+    "mae": 0.00288,
+    "r2": 0.99529,
+    "spearman": 0.99794,
+    "beats_baseline": true
+  },
+  "task2": {
+    "model": "RandomForest",
+    "f1_weighted": 0.92431,
+    "critical_recall": 0.0
+  },
+  "task3": {
+    "total_anomalies": 174,
+    "zscore_count": 100,
+    "iso_count": 52
+  },
+  "data": {
+    "countries": 21,
+    "years": "1993-2023",
+    "latest_year": 2023
+  }
+}

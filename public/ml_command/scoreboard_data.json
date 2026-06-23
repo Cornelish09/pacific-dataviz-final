@@ -1,0 +1,212 @@
+[
+  {
+    "country_code": "FJ",
+    "country_name": "Fiji",
+    "CVI": 0.6698,
+    "CVI_predicted": 0.6493,
+    "label": "critical",
+    "label_predicted": "at_risk",
+    "confidence": 0.7983,
+    "year": 2023
+  },
+  {
+    "country_code": "PW",
+    "country_name": "Palau",
+    "CVI": 0.5415,
+    "CVI_predicted": 0.5362,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.8277,
+    "year": 2023
+  },
+  {
+    "country_code": "VU",
+    "country_name": "Vanuatu",
+    "CVI": 0.5351,
+    "CVI_predicted": 0.5334,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.7938,
+    "year": 2023
+  },
+  {
+    "country_code": "GU",
+    "country_name": "Guam",
+    "CVI": 0.4921,
+    "CVI_predicted": 0.4909,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.9021,
+    "year": 2023
+  },
+  {
+    "country_code": "FM",
+    "country_name": "Micronesia",
+    "CVI": 0.4791,
+    "CVI_predicted": 0.4762,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.8101,
+    "year": 2023
+  },
+  {
+    "country_code": "NU",
+    "country_name": "Niue",
+    "CVI": 0.4773,
+    "CVI_predicted": 0.4747,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.9286,
+    "year": 2023
+  },
+  {
+    "country_code": "TO",
+    "country_name": "Tonga",
+    "CVI": 0.4761,
+    "CVI_predicted": 0.4714,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.7463,
+    "year": 2023
+  },
+  {
+    "country_code": "SB",
+    "country_name": "Solomon Islands",
+    "CVI": 0.4564,
+    "CVI_predicted": 0.4421,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.6435,
+    "year": 2023
+  },
+  {
+    "country_code": "MP",
+    "country_name": "Northern Mariana Islands",
+    "CVI": 0.4511,
+    "CVI_predicted": 0.45,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.914,
+    "year": 2023
+  },
+  {
+    "country_code": "MH",
+    "country_name": "Marshall Islands",
+    "CVI": 0.4469,
+    "CVI_predicted": 0.4443,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.6187,
+    "year": 2023
+  },
+  {
+    "country_code": "AS",
+    "country_name": "American Samoa",
+    "CVI": 0.4388,
+    "CVI_predicted": 0.4374,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.7681,
+    "year": 2023
+  },
+  {
+    "country_code": "NC",
+    "country_name": "New Caledonia",
+    "CVI": 0.433,
+    "CVI_predicted": 0.434,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.793,
+    "year": 2023
+  },
+  {
+    "country_code": "WF",
+    "country_name": "Wallis and Futuna",
+    "CVI": 0.432,
+    "CVI_predicted": 0.431,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.8943,
+    "year": 2023
+  },
+  {
+    "country_code": "PF",
+    "country_name": "French Polynesia",
+    "CVI": 0.4238,
+    "CVI_predicted": 0.4249,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.8606,
+    "year": 2023
+  },
+  {
+    "country_code": "NR",
+    "country_name": "Nauru",
+    "CVI": 0.4214,
+    "CVI_predicted": 0.4194,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.7112,
+    "year": 2023
+  },
+  {
+    "country_code": "CK",
+    "country_name": "Cook Islands",
+    "CVI": 0.418,
+    "CVI_predicted": 0.4192,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.8725,
+    "year": 2023
+  },
+  {
+    "country_code": "TK",
+    "country_name": "Tokelau",
+    "CVI": 0.4122,
+    "CVI_predicted": 0.4139,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.8667,
+    "year": 2023
+  },
+  {
+    "country_code": "WS",
+    "country_name": "Samoa",
+    "CVI": 0.3699,
+    "CVI_predicted": 0.3701,
+    "label": "at_risk",
+    "label_predicted": "resilient",
+    "confidence": 0.5704,
+    "year": 2023
+  },
+  {
+    "country_code": "PG",
+    "country_name": "Papua New Guinea",
+    "CVI": 0.368,
+    "CVI_predicted": 0.3669,
+    "label": "at_risk",
+    "label_predicted": "at_risk",
+    "confidence": 0.7656,
+    "year": 2023
+  },
+  {
+    "country_code": "KI",
+    "country_name": "Kiribati",
+    "CVI": 0.329,
+    "CVI_predicted": 0.3319,
+    "label": "resilient",
+    "label_predicted": "resilient",
+    "confidence": 0.6767,
+    "year": 2023
+  },
+  {
+    "country_code": "TV",
+    "country_name": "Tuvalu",
+    "CVI": 0.3271,
+    "CVI_predicted": 0.327,
+    "label": "resilient",
+    "label_predicted": "resilient",
+    "confidence": 0.5846,
+    "year": 2023
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "feature": "sl_trend_5yr",
+    "importance": 0.5568182373188533
+  },
+  {
+    "feature": "renew_share",
+    "importance": 0.2637535444458063
+  },
+  {
+    "feature": "sst_trend_10yr",
+    "importance": 0.0957531914938841
+  },
+  {
+    "feature": "roc_net_balance",
+    "importance": 0.0215865681761093
+  },
+  {
+    "feature": "roc_accretion_pct",
+    "importance": 0.0167063929821786
+  },
+  {
+    "feature": "has_coastline_data",
+    "importance": 0.0115700725211815
+  },
+  {
+    "feature": "sst_mean_10yr",
+    "importance": 0.0066523323880813
+  },
+  {
+    "feature": "ghg_per_capita",
+    "importance": 0.0050743147984255
+  },
+  {
+    "feature": "country_enc",
+    "importance": 0.0032909081330208
+  },
+  {
+    "feature": "renew_trend_5yr",
+    "importance": 0.0030912058142991
+  },
+  {
+    "feature": "sst_value",
+    "importance": 0.0027072226378647
+  },
+  {
+    "feature": "sl_mean_5yr",
+    "importance": 0.0024094352977148
+  },
+  {
+    "feature": "sst_consecutive_positive",
+    "importance": 0.0020996494414771
+  },
+  {
+    "feature": "global_co2_growth_rate",
+    "importance": 0.0019241828468292
+  },
+  {
+    "feature": "year_normalized",
+    "importance": 0.0018855083045564
+  }
+]
