@@ -12784,9 +12784,688 @@
     }
   </style>
 
+
+  <style id="v12-dropdown-pathway-polish">
+    /* Remove the anomalous yellow/gradient progress line under story text. */
+    .story-card::after {
+      display: none !important;
+    }
+
+    /* No more How to Read strip. */
+    .reader-guide {
+      display: none !important;
+    }
+
+    .map-stage-header {
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      overflow: visible;
+      column-gap: 12px;
+    }
+
+    .map-legend {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      max-width: 360px;
+    }
+
+    .island-picker {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      z-index: 60;
+      display: block;
+      width: 190px;
+      max-width: 190px;
+      padding: 0 !important;
+      overflow: visible !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+    }
+
+    .island-dropdown-trigger {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      align-items: center;
+      gap: 2px 10px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      background: rgba(251, 247, 236, 0.92);
+      border: 1px solid rgba(21, 32, 51, 0.15);
+      color: var(--ink);
+      box-shadow: 0 12px 28px rgba(21, 32, 51, 0.10);
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      text-align: left;
+    }
+
+    .island-dropdown-trigger:hover,
+    .island-picker.open .island-dropdown-trigger {
+      transform: translateY(-1px);
+      background: var(--paper);
+      box-shadow: 0 18px 42px rgba(21, 32, 51, 0.14);
+    }
+
+    .island-dropdown-trigger span {
+      grid-column: 1;
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .island-dropdown-trigger strong {
+      grid-column: 1;
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .island-dropdown-trigger i {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(36, 78, 92, 0.08);
+      transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), background 0.22s ease;
+    }
+
+    .island-dropdown-trigger i::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid var(--coast);
+      border-bottom: 2px solid var(--coast);
+      transform: translateY(-2px) rotate(45deg);
+    }
+
+    .island-picker.open .island-dropdown-trigger i {
+      transform: rotate(180deg);
+      background: rgba(36, 78, 92, 0.13);
+    }
+
+    .island-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 230px;
+      display: grid;
+      gap: 6px;
+      padding: 8px;
+      border-radius: 20px;
+      background: rgba(251, 247, 236, 0.96);
+      border: 1px solid rgba(21, 32, 51, 0.14);
+      box-shadow: 0 24px 64px rgba(21, 32, 51, 0.18);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      transform: translateY(-8px) scale(0.96);
+      pointer-events: none;
+      transform-origin: top right;
+      transition: opacity 0.24s ease, transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .island-picker.open .island-menu {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .island-menu button {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 14px;
+      background: transparent;
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .island-menu button:hover {
+      transform: translateX(3px);
+      background: rgba(36, 78, 92, 0.07);
+      color: var(--ink);
+    }
+
+    .island-menu button.active {
+      background: var(--coast);
+      color: var(--paper);
+    }
+
+    body.scene-exposure .metric-card {
+      overflow: hidden;
+    }
+
+    body.scene-exposure .metric-head {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      margin-bottom: 2px;
+    }
+
+    body.scene-exposure .metric-value {
+      font-size: clamp(22px, 2vw, 34px);
+      letter-spacing: -0.04em;
+      color: var(--risk);
+      max-width: 130px;
+      text-align: right;
+    }
+
+    body.scene-exposure .chart-stage {
+      height: clamp(246px, 36vh, 332px);
+      overflow: visible;
+    }
+
+    .pathway-spine {
+      stroke-dasharray: 420;
+      stroke-dashoffset: 420;
+      animation: pathwayDraw 1.25s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+    }
+
+    .pathway-node {
+      opacity: 0;
+      transform: translateY(12px);
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pathwayCardIn 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      cursor: default;
+    }
+
+    .pathway-node-1 { animation-delay: 0.18s; }
+    .pathway-node-2 { animation-delay: 0.34s; }
+    .pathway-node-3 { animation-delay: 0.50s; }
+    .pathway-node-4 { animation-delay: 0.66s; }
+
+    .pathway-node:hover,
+    .pathway-node:focus {
+      transform: translateY(-2px) scale(1.012);
+    }
+
+    .pathway-dot {
+      animation: pathwayPulse 2.4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .pathway-node-2 .pathway-dot { animation-delay: 0.18s; }
+    .pathway-node-3 .pathway-dot { animation-delay: 0.36s; }
+    .pathway-node-4 .pathway-dot { animation-delay: 0.54s; }
+
+    .pathway-caption {
+      font-size: 8.5px !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.015em;
+    }
+
+    @keyframes pathwayDraw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes pathwayCardIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pathwayPulse {
+      0%, 100% { transform: scale(1); opacity: 0.96; }
+      50% { transform: scale(1.08); opacity: 0.78; }
+    }
+
+    @media (max-width: 1280px) {
+      .map-stage-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .map-legend {
+        display: none;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .map-stage-header {
+        grid-template-columns: 1fr;
+        overflow: visible;
+      }
+
+      .island-picker {
+        width: 100%;
+        max-width: none;
+        margin: 0 !important;
+      }
+
+      .island-menu {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        transform-origin: top center;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+      }
+
+      .island-picker.open .island-menu {
+        max-height: 320px;
+        padding: 8px;
+      }
+    }
+  </style>
+
+
+
+  <style id="final-v13-polish-revision">
+    :root {
+      --topbar-height: 0px;
+      --chapter-accent: var(--coast);
+      --chapter-soft: rgba(36, 78, 92, 0.10);
+      --chapter-glow: rgba(36, 78, 92, 0.20);
+      --chapter-deep: #244e5c;
+    }
+
+    body.scene-hero,
+    body.scene-closing {
+      --chapter-accent: #b86850;
+      --chapter-soft: rgba(184, 104, 80, 0.12);
+      --chapter-glow: rgba(184, 104, 80, 0.22);
+      --chapter-deep: #152033;
+    }
+
+    body.scene-line {
+      --chapter-accent: #244e5c;
+      --chapter-soft: rgba(36, 78, 92, 0.11);
+      --chapter-glow: rgba(36, 78, 92, 0.22);
+      --chapter-deep: #173f4a;
+    }
+
+    body.scene-water {
+      --chapter-accent: #2f6f86;
+      --chapter-soft: rgba(47, 111, 134, 0.13);
+      --chapter-glow: rgba(47, 111, 134, 0.24);
+      --chapter-deep: #173f4a;
+    }
+
+    body.scene-exposure {
+      --chapter-accent: #d3af63;
+      --chapter-soft: rgba(211, 175, 99, 0.18);
+      --chapter-glow: rgba(211, 175, 99, 0.28);
+      --chapter-deep: #8e5f3e;
+    }
+
+    body.scene-human {
+      --chapter-accent: #b86850;
+      --chapter-soft: rgba(184, 104, 80, 0.15);
+      --chapter-glow: rgba(184, 104, 80, 0.28);
+      --chapter-deep: #7f463a;
+    }
+
+    body.scene-ledger {
+      --chapter-accent: #6b5f83;
+      --chapter-soft: rgba(107, 95, 131, 0.15);
+      --chapter-glow: rgba(107, 95, 131, 0.26);
+      --chapter-deep: #3d3754;
+    }
+
+    body.scene-resilience {
+      --chapter-accent: #5b7562;
+      --chapter-soft: rgba(91, 117, 98, 0.15);
+      --chapter-glow: rgba(91, 117, 98, 0.26);
+      --chapter-deep: #344b3a;
+    }
+
+    .topbar {
+      display: none !important;
+    }
+
+    .atlas-shell {
+      grid-template-rows: minmax(0, 1fr) var(--bottom-timeline) !important;
+      padding-top: 16px !important;
+      row-gap: var(--stage-gap) !important;
+      background:
+        radial-gradient(circle at 50% 16%, var(--chapter-glow), transparent 30%),
+        linear-gradient(180deg, rgba(251, 247, 236, 0.18), transparent 32%);
+    }
+
+    .story-rail,
+    .stage-column,
+    .data-rail {
+      grid-row: 1 / 3 !important;
+    }
+
+    .story-card::after {
+      display: none !important;
+    }
+
+    .top-progress {
+      background: linear-gradient(90deg, var(--chapter-deep), var(--chapter-accent), var(--gold)) !important;
+    }
+
+    .story-card h1 em,
+    .metric-value,
+    .map-title strong,
+    .evidence-card .label,
+    .chapter-index {
+      color: var(--chapter-accent) !important;
+    }
+
+    .label,
+    .nav-node.active,
+    .evidence-mini,
+    .map-btn.active,
+    .map-btn:hover {
+      background: var(--chapter-soft) !important;
+    }
+
+    .nav-node.active .nav-dot,
+    .island-menu button.active {
+      background: var(--chapter-deep) !important;
+      border-color: var(--chapter-deep) !important;
+      color: var(--paper) !important;
+    }
+
+    .map-stage,
+    .story-card,
+    .evidence-card,
+    .metric-card,
+    .method-card {
+      border-color: color-mix(in srgb, var(--chapter-accent) 23%, rgba(21,32,51,0.10)) !important;
+    }
+
+    .map-stage {
+      box-shadow: 0 34px 100px color-mix(in srgb, var(--chapter-accent) 18%, rgba(21, 32, 51, 0.16)) !important;
+    }
+
+    /* Opening dibuat seperti penutup: card editorial tengah, bukan panel samping. */
+    body.scene-hero .atlas-shell {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: minmax(0, 1fr) !important;
+      place-items: center;
+      padding: 32px !important;
+    }
+
+    body.scene-hero .stage-column,
+    body.scene-hero .data-rail,
+    body.scene-hero .chapter-nav {
+      display: none !important;
+    }
+
+    body.scene-hero .story-rail {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      width: min(900px, calc(100vw - 64px));
+      display: grid;
+      place-items: center;
+      overflow: visible !important;
+    }
+
+    body.scene-hero .story-card {
+      width: 100%;
+      height: auto !important;
+      max-height: min(74vh, 620px);
+      overflow: auto !important;
+      padding: clamp(30px, 4.5vw, 54px) !important;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(184, 104, 80, 0.16), transparent 34%),
+        radial-gradient(circle at 88% 88%, rgba(36, 78, 92, 0.14), transparent 30%),
+        rgba(251, 247, 236, 0.94) !important;
+      color: var(--ink) !important;
+      box-shadow: 0 38px 120px rgba(21, 32, 51, 0.18);
+      backdrop-filter: blur(20px);
+      transform: translateY(calc((1 - var(--scene-progress)) * 18px)) scale(calc(0.985 + var(--scene-progress) * 0.015));
+    }
+
+    body.scene-hero .story-card .chapter-index {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(184, 104, 80, 0.10);
+      margin-bottom: 18px;
+      color: var(--risk) !important;
+    }
+
+    body.scene-hero .story-card h1 {
+      max-width: 760px;
+      font-size: clamp(54px, 8vw, 104px) !important;
+      line-height: 0.9 !important;
+      letter-spacing: -0.07em !important;
+      color: var(--ink) !important;
+    }
+
+    body.scene-hero .story-card p {
+      max-width: 760px;
+      color: var(--ink-soft) !important;
+      font-size: clamp(16px, 1.55vw, 22px) !important;
+      line-height: 1.65 !important;
+    }
+
+    body.scene-hero .plain-row {
+      margin-top: 22px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(21, 32, 51, 0.12);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.30);
+    }
+
+    body.scene-hero .plain-row b {
+      color: var(--muted) !important;
+    }
+
+    body.scene-hero .plain-row span {
+      color: var(--ink-soft) !important;
+      font-size: clamp(13px, 1.2vw, 16px) !important;
+    }
+
+    body.scene-hero .story-hint {
+      margin-top: 18px !important;
+      background: rgba(184, 104, 80, 0.10) !important;
+      border-color: rgba(184, 104, 80, 0.18) !important;
+      color: var(--ink-soft) !important;
+    }
+
+    /* Opening transition back into atlas */
+    body:not(.scene-hero) .stage-column,
+    body:not(.scene-hero) .data-rail,
+    body:not(.scene-hero) .story-rail {
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Dropdown island tetap ringkas dan tidak menutup peta. */
+    .map-stage-header {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+      align-items: center !important;
+      overflow: visible !important;
+    }
+
+    .map-legend {
+      display: none !important;
+    }
+
+    .island-picker {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      max-width: 245px !important;
+      width: 245px !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      z-index: 80 !important;
+    }
+
+    .island-dropdown-trigger {
+      background: rgba(251, 247, 236, 0.98) !important;
+      border-color: rgba(21, 32, 51, 0.15) !important;
+      box-shadow: 0 12px 30px rgba(21,32,51,0.10);
+    }
+
+    .island-dropdown-trigger span {
+      color: var(--chapter-accent) !important;
+    }
+
+    .island-menu {
+      z-index: 120 !important;
+    }
+
+    /* Exposure pathway: hapus tampilan Line→Risk dan ganti menjadi visual yang stabil. */
+    body.scene-exposure .metric-card {
+      overflow: hidden !important;
+      background:
+        radial-gradient(circle at 16% 16%, rgba(211, 175, 99, 0.16), transparent 35%),
+        radial-gradient(circle at 88% 72%, rgba(184, 104, 80, 0.12), transparent 34%),
+        rgba(251, 247, 236, 0.92) !important;
+    }
+
+    body.scene-exposure .metric-head {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+      gap: 10px !important;
+      margin-bottom: 4px !important;
+      align-items: start !important;
+    }
+
+    body.scene-exposure .metric-title small {
+      color: var(--chapter-accent) !important;
+    }
+
+    body.scene-exposure .metric-title strong {
+      max-width: 190px !important;
+      font-size: clamp(18px, 1.6vw, 23px) !important;
+      line-height: 1.02 !important;
+    }
+
+    body.scene-exposure .metric-value {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(211, 175, 99, 0.18);
+      color: #8e5f3e !important;
+      font-size: 12px !important;
+      line-height: 1 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase;
+      font-weight: 900;
+      white-space: nowrap;
+      max-width: none !important;
+    }
+
+    body.scene-exposure .chart-stage {
+      height: clamp(260px, 40vh, 360px) !important;
+      min-height: 260px;
+      overflow: visible !important;
+    }
+
+    .pathway-board {
+      filter: drop-shadow(0 16px 22px rgba(21, 32, 51, 0.10));
+    }
+
+    .pathway-glow {
+      opacity: 0;
+      animation: glowIn 1.4s ease forwards;
+    }
+
+    .pathway-flow {
+      stroke-dasharray: 560;
+      stroke-dashoffset: 560;
+      animation: pathwayDraw 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+    }
+
+    .pathway-node {
+      opacity: 0;
+      transform: translateY(14px) scale(0.96);
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pathwayNodeIn 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .pathway-node-1 { animation-delay: 0.18s; }
+    .pathway-node-2 { animation-delay: 0.34s; }
+    .pathway-node-3 { animation-delay: 0.50s; }
+    .pathway-node-4 { animation-delay: 0.66s; }
+
+    .pathway-node:hover {
+      transform: translateY(-3px) scale(1.015);
+    }
+
+    .pathway-dot {
+      animation: pathwayPulse 2.5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .pathway-node-2 .pathway-dot { animation-delay: 0.2s; }
+    .pathway-node-3 .pathway-dot { animation-delay: 0.4s; }
+    .pathway-node-4 .pathway-dot { animation-delay: 0.6s; }
+
+    @keyframes glowIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes pathwayNodeIn {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 1180px) {
+      .island-picker { width: 220px !important; max-width: 220px !important; }
+      body.scene-exposure .chart-stage { height: 300px !important; }
+    }
+
+    @media (max-width: 920px) {
+      .atlas-shell {
+        grid-template-rows: auto auto auto !important;
+        padding-top: 12px !important;
+      }
+
+      .story-rail,
+      .stage-column,
+      .data-rail {
+        grid-row: auto !important;
+      }
+
+      body.scene-hero .atlas-shell {
+        padding: 16px !important;
+      }
+
+      body.scene-hero .story-rail {
+        width: min(100%, calc(100vw - 24px));
+      }
+
+      body.scene-hero .story-card h1 {
+        font-size: clamp(44px, 14vw, 72px) !important;
+      }
+
+      .map-stage-header {
+        grid-template-columns: 1fr !important;
+      }
+
+      .island-picker {
+        width: 100% !important;
+        max-width: none !important;
+      }
+    }
+  </style>
+
 </head>
 
-<body class="scene-hero guide-mode">
+<body class="scene-hero">
   <div id="loadingScreen" class="loading-screen">
     <div class="loading-card">
       <h1>Preparing the atlas stage</h1>
@@ -12809,7 +13488,6 @@
       <div id="sceneChip" class="scene-chip">Opening</div>
 
       <div class="top-actions">
-        <button id="guideModeBtn" class="micro-btn active" type="button">Guide mode</button>
         <button id="mapFocusBtn" class="micro-btn" type="button">Focus map</button>
         <button id="nextSceneBtn" class="micro-btn" type="button">Next scene</button>
       </div>
@@ -12848,31 +13526,29 @@
             <span class="legend-item"><i class="legend-line"></i> selected year</span>
             <span class="legend-item"><i class="legend-line previous"></i> previous snapshot</span>
           </div>
+
+          <div id="islandPicker" class="island-picker island-dropdown" aria-label="Choose island focus">
+            <button id="islandDropdownBtn" class="island-dropdown-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Focus island</span>
+              <strong id="islandActiveLabel">All islands</strong>
+              <i aria-hidden="true"></i>
+            </button>
+            <div class="island-menu" role="listbox" aria-label="Island options">
+              <button class="active" type="button" data-island="all" data-label="All islands">All islands</button>
+              <button type="button" data-island="guadalcanal" data-label="Guadalcanal">Guadalcanal</button>
+              <button type="button" data-island="malaita" data-label="Malaita">Malaita</button>
+              <button type="button" data-island="western" data-label="Western">Western Province</button>
+              <button type="button" data-island="choiseul" data-label="Choiseul">Choiseul</button>
+              <button type="button" data-island="isabel" data-label="Santa Isabel">Santa Isabel</button>
+            </div>
+          </div>
         </div>
 
         <div class="map-viewport">
           <div id="map"></div>
           <canvas id="atlasCanvas"></canvas>
           <div class="focus-vignette"></div>
-
-          <div id="readerGuide" class="reader-guide" aria-label="How to read this visualization">
-            <b>How to read</b>
-            <span>1. Pick a year</span>
-            <span>2. Focus an island</span>
-            <span>3. Read the evidence cards</span>
-          </div>
-
-          <div id="islandPicker" class="island-picker" aria-label="Choose island focus">
-            <span>Focus island</span>
-            <button class="active" type="button" data-island="all">All</button>
-            <button type="button" data-island="guadalcanal">Guadalcanal</button>
-            <button type="button" data-island="malaita">Malaita</button>
-            <button type="button" data-island="western">Western</button>
-            <button type="button" data-island="choiseul">Choiseul</button>
-            <button type="button" data-island="isabel">Santa Isabel</button>
-          </div>
-
-          <aside class="map-callout">
+<aside class="map-callout">
             <small id="mapCalloutKicker">Map reading</small>
             <strong id="mapCalloutTitle">Read the line first</strong>
             <p id="mapCalloutBody">Gunakan slider tahun untuk melihat snapshot garis pantai tanpa menutup visual utama.</p>
@@ -12986,9 +13662,9 @@
         index: "Opening",
         title: "The coast is the main stage.",
         htmlTitle: "The coast is the main <em>stage</em>.",
-        body: "Di versi ini, peta tidak lagi dijadikan background. Peta menjadi visualisasi utama yang dibaca bersama narasi, data, dan timeline.",
-        meaning: "Garis pantai dibaca sebagai batas ruang hidup, bukan hiasan di belakang teks.",
-        why: "Audience bisa fokus pada perubahan garis pantai tanpa tertutup panel besar.",
+        body: "Sebuah data story tentang garis pantai Solomon Islands: bagaimana batas laut dan darat dibaca bersama tekanan laut, dampak manusia, keadilan iklim, dan ketahanan.",
+        meaning: "Peta menjadi panggung utama untuk membaca bukti, bukan sekadar latar belakang visual.",
+        why: "Pembaca awam bisa mengikuti cerita dari satu pertanyaan sederhana: ketika garis berubah, apa yang ikut terdampak?",
         guardrail: "Guardrail: project ini tidak mengklaim semua pulau tenggelam atau semua garis pantai menyusut.",
         evidenceTitle: "Atlas stage",
         evidence: "Peta berada di tengah sebagai visual utama. Narasi dan data bergerak di sisi kiri-kanan agar tidak menutup coastline.",
@@ -13348,16 +14024,23 @@
       applyIslandFocus(layer, fit = false) {
         const bounds = this.focusAreas[this.selectedIsland];
 
+        // Jangan reset zoom ketika timeline sedang Play atau ketika tahun berubah otomatis.
+        // Zoom/focus hanya terjadi saat user menekan Fit, mengganti island, atau saat initial fit.
+        const shouldFit = fit || !this.lastFit;
+
         if (bounds) {
-          this.map.flyToBounds(bounds, {
-            padding: [34, 34],
-            maxZoom: 9,
-            duration: fit ? 0.65 : 0.42
-          });
+          if (shouldFit) {
+            this.map.flyToBounds(bounds, {
+              padding: [34, 34],
+              maxZoom: 9,
+              duration: fit ? 0.65 : 0.42
+            });
+            this.lastFit = true;
+          }
           return;
         }
 
-        if ((fit || !this.lastFit) && layer && layer.getBounds && layer.getBounds().isValid()) {
+        if (shouldFit && layer && layer.getBounds && layer.getBounds().isValid()) {
           this.map.fitBounds(layer.getBounds(), {
             padding: [54, 54],
             maxZoom: 8
@@ -13639,127 +14322,142 @@
       }
 
       exposurePathwayDiagram() {
-        const { svg } = this.setup(340, 230);
+        const { svg } = this.setup(320, 332);
+        const make = tag => document.createElementNS("http://www.w3.org/2000/svg", tag);
+
+        const defs = make("defs");
+        defs.innerHTML = `
+          <filter id="pathwaySoftShadow" x="-30%" y="-30%" width="160%" height="180%">
+            <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#152033" flood-opacity="0.12"/>
+          </filter>
+          <linearGradient id="pathwayFlowGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#244e5c"/>
+            <stop offset="48%" stop-color="#d3af63"/>
+            <stop offset="100%" stop-color="#b86850"/>
+          </linearGradient>
+          <radialGradient id="pathwayGlow" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" stop-color="#d3af63" stop-opacity="0.36"/>
+            <stop offset="100%" stop-color="#d3af63" stop-opacity="0"/>
+          </radialGradient>
+        `;
+        svg.appendChild(defs);
+
+        const glow = make("ellipse");
+        glow.setAttribute("cx", 160);
+        glow.setAttribute("cy", 166);
+        glow.setAttribute("rx", 132);
+        glow.setAttribute("ry", 146);
+        glow.setAttribute("fill", "url(#pathwayGlow)");
+        glow.setAttribute("class", "pathway-glow");
+        svg.appendChild(glow);
+
+        const board = make("rect");
+        board.setAttribute("x", 18);
+        board.setAttribute("y", 18);
+        board.setAttribute("width", 284);
+        board.setAttribute("height", 286);
+        board.setAttribute("rx", 30);
+        board.setAttribute("fill", "rgba(251,247,236,0.70)");
+        board.setAttribute("stroke", "rgba(21,32,51,0.10)");
+        board.setAttribute("class", "pathway-board");
+        svg.appendChild(board);
+
+        const flow = make("path");
+        flow.setAttribute("d", "M 68 67 C 132 67, 143 105, 160 124 C 179 146, 253 134, 253 183 C 253 224, 178 218, 160 239 C 142 260, 123 272, 68 272");
+        flow.setAttribute("fill", "none");
+        flow.setAttribute("stroke", "url(#pathwayFlowGradient)");
+        flow.setAttribute("stroke-width", "4.5");
+        flow.setAttribute("stroke-linecap", "round");
+        flow.setAttribute("stroke-linejoin", "round");
+        flow.setAttribute("class", "pathway-flow");
+        svg.appendChild(flow);
+
         const steps = [
           {
-            x: 18,
-            y: 42,
-            w: 142,
-            h: 58,
-            n: "01",
-            title: "Coastline",
-            body: "Batas darat dan laut berubah",
-            color: "#244e5c"
+            n: "01", x: 42, y: 42, w: 214, color: "#244e5c",
+            title: "Coastline shifts",
+            lines: ["Batas laut-darat", "mulai berubah"]
           },
           {
-            x: 180,
-            y: 42,
-            w: 142,
-            h: 58,
-            n: "02",
-            title: "Homes & roads",
-            body: "Ruang hidup makin terekspos",
-            color: "#d3af63"
+            n: "02", x: 66, y: 110, w: 214, color: "#d3af63",
+            title: "Living space exposed",
+            lines: ["Rumah, jalan, dan", "ruang hidup makin dekat"]
           },
           {
-            x: 18,
-            y: 122,
-            w: 142,
-            h: 58,
-            n: "03",
-            title: "Access & water",
-            body: "Akses, air, dan layanan rentan",
-            color: "#b86850"
+            n: "03", x: 42, y: 178, w: 214, color: "#b86850",
+            title: "Access gets fragile",
+            lines: ["Akses, air, dan layanan", "jadi lebih rentan"]
           },
           {
-            x: 180,
-            y: 122,
-            w: 142,
-            h: 58,
-            n: "04",
-            title: "Daily risk",
-            body: "Dampaknya terasa di kehidupan harian",
-            color: "#152033"
+            n: "04", x: 66, y: 246, w: 214, color: "#152033",
+            title: "Risk becomes daily",
+            lines: ["Risiko terasa dalam", "kehidupan sehari-hari"]
           }
         ];
 
-        const make = tag => document.createElementNS("http://www.w3.org/2000/svg", tag);
+        steps.forEach((step, index) => {
+          const group = make("g");
+          group.setAttribute("class", `pathway-node pathway-node-${index + 1}`);
 
-        const bg = make("rect");
-        bg.setAttribute("x", 8);
-        bg.setAttribute("y", 18);
-        bg.setAttribute("width", 324);
-        bg.setAttribute("height", 184);
-        bg.setAttribute("rx", 24);
-        bg.setAttribute("fill", "rgba(21, 32, 51, 0.035)");
-        bg.setAttribute("stroke", "rgba(21, 32, 51, 0.10)");
-        svg.appendChild(bg);
-
-        const connectors = [
-          [160, 71, 180, 71],
-          [251, 100, 251, 122],
-          [160, 151, 180, 151]
-        ];
-        connectors.forEach(([x1, y1, x2, y2]) => {
-          const line = make("line");
-          line.setAttribute("x1", x1);
-          line.setAttribute("y1", y1);
-          line.setAttribute("x2", x2);
-          line.setAttribute("y2", y2);
-          line.setAttribute("stroke", "rgba(21, 32, 51, 0.34)");
-          line.setAttribute("stroke-width", 3);
-          line.setAttribute("stroke-linecap", "round");
-          svg.appendChild(line);
-        });
-
-        steps.forEach(step => {
           const card = make("rect");
           card.setAttribute("x", step.x);
           card.setAttribute("y", step.y);
           card.setAttribute("width", step.w);
-          card.setAttribute("height", step.h);
-          card.setAttribute("rx", 17);
+          card.setAttribute("height", 54);
+          card.setAttribute("rx", 19);
           card.setAttribute("fill", "#fbf7ec");
-          card.setAttribute("stroke", "rgba(21, 32, 51, 0.12)");
-          svg.appendChild(card);
+          card.setAttribute("stroke", "rgba(21,32,51,0.13)");
+          card.setAttribute("filter", "url(#pathwaySoftShadow)");
+          group.appendChild(card);
 
           const dot = make("circle");
-          dot.setAttribute("cx", step.x + 26);
-          dot.setAttribute("cy", step.y + 24);
-          dot.setAttribute("r", 15);
+          dot.setAttribute("cx", step.x + 27);
+          dot.setAttribute("cy", step.y + 27);
+          dot.setAttribute("r", 18);
           dot.setAttribute("fill", step.color);
-          svg.appendChild(dot);
+          dot.setAttribute("class", "pathway-dot");
+          group.appendChild(dot);
 
           const num = make("text");
-          num.setAttribute("x", step.x + 26);
-          num.setAttribute("y", step.y + 28);
+          num.setAttribute("x", step.x + 27);
+          num.setAttribute("y", step.y + 31);
           num.setAttribute("text-anchor", "middle");
-          num.setAttribute("font-size", "9");
-          num.setAttribute("font-weight", "800");
+          num.setAttribute("font-size", "9.5");
+          num.setAttribute("font-weight", "900");
           num.setAttribute("fill", "#fbf7ec");
           num.textContent = step.n;
-          svg.appendChild(num);
+          group.appendChild(num);
 
           const title = make("text");
-          title.setAttribute("x", step.x + 48);
-          title.setAttribute("y", step.y + 23);
-          title.setAttribute("font-size", "12");
-          title.setAttribute("font-weight", "800");
+          title.setAttribute("x", step.x + 58);
+          title.setAttribute("y", step.y + 21);
+          title.setAttribute("font-size", "12.6");
+          title.setAttribute("font-weight", "900");
           title.setAttribute("fill", "#152033");
           title.textContent = step.title;
-          svg.appendChild(title);
+          group.appendChild(title);
 
-          const body = make("text");
-          body.setAttribute("x", step.x + 48);
-          body.setAttribute("y", step.y + 41);
-          body.setAttribute("font-size", "9.5");
-          body.setAttribute("font-weight", "700");
-          body.setAttribute("fill", "#69778c");
-          body.textContent = step.body;
-          svg.appendChild(body);
+          step.lines.forEach((line, i) => {
+            const body = make("text");
+            body.setAttribute("x", step.x + 58);
+            body.setAttribute("y", step.y + 37 + i * 11);
+            body.setAttribute("font-size", "8.4");
+            body.setAttribute("font-weight", "800");
+            body.setAttribute("fill", "#69778c");
+            body.textContent = line;
+            group.appendChild(body);
+          });
+
+          svg.appendChild(group);
         });
 
-        this.text(20, 216, "Exposure is a pathway: coastline → access → daily life.", "axis-label");
+        const footer = make("text");
+        footer.setAttribute("x", 160);
+        footer.setAttribute("y", 323);
+        footer.setAttribute("text-anchor", "middle");
+        footer.setAttribute("class", "axis-label pathway-caption");
+        footer.textContent = "Coastline → exposure → access → daily life";
+        svg.appendChild(footer);
       }
 
       format(value, decimals = 2) {
@@ -13886,7 +14584,7 @@
 
         if (scene === "exposure") {
           Dom.setText("metricKicker", "Exposure pathway");
-          Dom.setText("metricTitle", "How coastline becomes daily risk");
+          Dom.setText("metricTitle", "Coastline to daily life");
           Dom.setText("metricValue", "4 steps");
           Dom.id("metricValue").classList.add("risk");
           this.chart.exposurePathwayDiagram();
@@ -13934,12 +14632,38 @@
         const picker = Dom.id("islandPicker");
         if (!picker) return;
 
+        const trigger = Dom.id("islandDropdownBtn");
+        const label = Dom.id("islandActiveLabel");
+        const closeMenu = () => {
+          picker.classList.remove("open");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        };
+
+        if (trigger) {
+          trigger.addEventListener("click", event => {
+            event.stopPropagation();
+            const isOpen = picker.classList.toggle("open");
+            trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          });
+        }
+
         picker.querySelectorAll("button[data-island]").forEach(button => {
-          button.addEventListener("click", () => {
+          button.addEventListener("click", event => {
+            event.stopPropagation();
             this.mapStage.setIsland(button.dataset.island);
             picker.querySelectorAll("button[data-island]").forEach(node => node.classList.toggle("active", node === button));
+            if (label) label.textContent = button.dataset.label || button.textContent.trim();
+            closeMenu();
             this.updateYear(this.yearIndex, true);
           });
+        });
+
+        document.addEventListener("click", event => {
+          if (!picker.contains(event.target)) closeMenu();
+        });
+
+        document.addEventListener("keydown", event => {
+          if (event.key === "Escape") closeMenu();
         });
       }
 
@@ -14087,10 +14811,6 @@
       Dom.id("playBtn").addEventListener("click", () => ui.togglePlay());
       Dom.id("fitBtn").addEventListener("click", () => ui.updateYear(ui.yearIndex, true));
       Dom.id("nextSceneBtn").addEventListener("click", () => SceneEngine.nextScene());
-      Dom.id("guideModeBtn").addEventListener("click", () => {
-        document.body.classList.toggle("guide-mode");
-        Dom.id("guideModeBtn").classList.toggle("active", document.body.classList.contains("guide-mode"));
-      });
 
       Dom.id("mapFocusBtn").addEventListener("click", () => {
         document.body.classList.toggle("focus-map");
@@ -14114,11 +14834,6 @@
 
         if (event.key.toLowerCase() === "m") {
           document.body.classList.toggle("focus-map");
-        }
-
-        if (event.key.toLowerCase() === "g") {
-          document.body.classList.toggle("guide-mode");
-          Dom.id("guideModeBtn").classList.toggle("active", document.body.classList.contains("guide-mode"));
         }
       });
 

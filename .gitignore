@@ -1,0 +1,13 @@
+.venv/
+raw/
+*.zip
+*.rar
+*.7z
+*.mp4
+*.mov
+*.avi
+__pycache__/
+.ipynb_checkpoints/
+.cache/
+dist/
+build/
