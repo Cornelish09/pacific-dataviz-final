@@ -17,46 +17,47 @@
         <span class="ml-dot"></span>
         <div>
           <strong>ML Command Center</strong>
-          <span>CVI · anomalies · feature influence · model evidence</span>
+          <span>CVI · anomaly flags · feature influence · model evidence</span>
         </div>
       </div>
+
       <nav class="ml-tabs" aria-label="ML command tabs">
         <button class="tab-btn active" data-tab="scoreboard">Scoreboard</button>
         <button class="tab-btn" data-tab="timeline">Timeline</button>
         <button class="tab-btn" data-tab="anomalies">Anomalies</button>
-        <button class="tab-btn" data-tab="model">Model Evidence</button>
+        <button class="tab-btn" data-tab="model">Model</button>
       </nav>
     </header>
 
-    <section class="overview-grid" aria-label="ML command overview">
-      <article class="overview-card">
-        <span>Countries</span>
-        <strong id="kpi-countries">—</strong>
-        <small>Pacific records</small>
+    <section class="command-strip" aria-label="ML command key readings">
+      <article class="strip-card big">
+        <span>Pacific model scope</span>
+        <strong><b id="kpi-countries">—</b> countries</strong>
+        <small>1993–2023 model matrix</small>
       </article>
-      <article class="overview-card risk">
+      <article class="strip-card">
         <span>At risk</span>
         <strong id="kpi-risk">—</strong>
-        <small>latest model label</small>
+        <small>latest label split</small>
       </article>
-      <article class="overview-card">
+      <article class="strip-card">
         <span>Anomaly flags</span>
         <strong id="kpi-anomalies">—</strong>
-        <small>all methods combined</small>
+        <small>ISO · LOF · Z-score</small>
       </article>
-      <article class="overview-card">
-        <span>Solomon CVI</span>
+      <article class="strip-card focus">
+        <span>Solomon Islands</span>
         <strong id="kpi-sb-cvi">—</strong>
-        <small id="kpi-sb-label">Solomon Islands</small>
+        <small id="kpi-sb-label">focus readout</small>
       </article>
     </section>
 
     <main class="ml-content">
       <section id="tab-scoreboard" class="tab-page active">
-        <div class="section-head compact">
+        <div class="section-head">
           <div>
-            <p class="eyebrow">Pacific scoreboard</p>
-            <h2>Latest vulnerability reading</h2>
+            <p class="eyebrow">Scoreboard</p>
+            <h2>Pacific vulnerability ranking</h2>
           </div>
           <div class="filter-row">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -66,13 +67,15 @@
           </div>
         </div>
 
-        <div class="dashboard-grid">
+        <div id="scoreboard-highlights" class="insight-grid"></div>
+
+        <div class="dashboard-grid scoreboard-layout">
           <section class="panel chart-panel">
             <div class="panel-head">
-              <span>CVI ranking</span>
-              <strong>Higher CVI = higher vulnerability</strong>
+              <span>CVI ladder</span>
+              <strong>Top countries by latest CVI</strong>
             </div>
-            <div class="chart-box">
+            <div class="chart-box ranking">
               <canvas id="chart-scoreboard"></canvas>
             </div>
           </section>
@@ -88,26 +91,32 @@
       </section>
 
       <section id="tab-timeline" class="tab-page">
-        <div class="section-head compact">
+        <div class="section-head timeline-head">
           <div>
             <p class="eyebrow">CVI timeline</p>
             <h2>Actual vs predicted vulnerability</h2>
           </div>
-          <div class="control-row">
-            <label>Country</label>
-            <select id="timeline-country"></select>
-            <label>Compare</label>
-            <select id="timeline-compare"><option value="">None</option></select>
+          <div class="control-panel">
+            <label>
+              <span>Country</span>
+              <select id="timeline-country"></select>
+            </label>
+            <label>
+              <span>Compare</span>
+              <select id="timeline-compare"><option value="">None</option></select>
+            </label>
           </div>
         </div>
+
+        <div id="timeline-snapshot" class="timeline-snapshot"></div>
 
         <div class="dashboard-grid timeline-layout">
           <section class="panel chart-panel wide">
             <div class="panel-head">
               <span>1993–2023</span>
-              <strong>Solid line actual · dashed line predicted</strong>
+              <strong>Solid line = actual · dashed line = model prediction</strong>
             </div>
-            <div class="chart-box tall">
+            <div class="chart-box timeline-chart">
               <canvas id="chart-timeline"></canvas>
             </div>
           </section>
@@ -116,17 +125,19 @@
       </section>
 
       <section id="tab-anomalies" class="tab-page">
-        <div class="section-head compact">
+        <div class="section-head anomaly-head">
           <div>
             <p class="eyebrow">Anomaly review</p>
             <h2>Where the model sees unusual signals</h2>
           </div>
-          <div class="control-row">
+          <div class="search-panel">
             <label>Search</label>
             <input id="anomaly-search" type="text" placeholder="Country name or code..." />
             <span id="anomaly-count" class="count-pill">—</span>
           </div>
         </div>
+
+        <div id="anomaly-summary" class="anomaly-summary"></div>
 
         <div class="dashboard-grid anomaly-layout">
           <section class="panel chart-panel">
@@ -134,13 +145,13 @@
               <span>Anomaly concentration</span>
               <strong>Top countries by anomaly count</strong>
             </div>
-            <div class="chart-box tall">
+            <div class="chart-box anomaly-chart">
               <canvas id="chart-anomaly-bar"></canvas>
             </div>
           </section>
           <section class="panel anomaly-panel">
             <div class="panel-head">
-              <span>Event list</span>
+              <span>Event stream</span>
               <strong>Method flags and indicators</strong>
             </div>
             <div id="anomaly-list" class="anomaly-list"></div>
@@ -149,32 +160,41 @@
       </section>
 
       <section id="tab-model" class="tab-page">
-        <div class="section-head compact">
+        <div class="section-head">
           <div>
             <p class="eyebrow">Model evidence</p>
-            <h2>How the ML layer was evaluated</h2>
+            <h2>Regression · classification · anomaly detection</h2>
           </div>
           <span class="guardrail-pill">Lens, not causal proof</span>
         </div>
 
         <div id="model-metrics-grid" class="model-grid"></div>
 
-        <section class="panel feature-panel">
-          <div class="panel-head">
-            <span>Feature influence</span>
-            <strong>What the model pays attention to</strong>
-          </div>
-          <div class="chart-box">
-            <canvas id="chart-fi"></canvas>
-          </div>
-        </section>
+        <div class="dashboard-grid model-layout">
+          <section class="panel feature-panel">
+            <div class="panel-head">
+              <span>Feature influence</span>
+              <strong>What the model pays attention to</strong>
+            </div>
+            <div class="chart-box feature-chart">
+              <canvas id="chart-fi"></canvas>
+            </div>
+          </section>
+
+          <section class="panel model-note-panel">
+            <div class="panel-head">
+              <span>Reading rule</span>
+              <strong>How to interpret this layer</strong>
+            </div>
+            <div class="model-rules">
+              <div><b>Pattern lens</b><span>ML helps surface patterns, not prove direct causes.</span></div>
+              <div><b>Pacific-wide</b><span>The model reads 21 countries, while the main story still focuses on Solomon Islands.</span></div>
+              <div><b>Competition value</b><span>The dashboard makes the model explorable without breaking the atlas narrative.</span></div>
+            </div>
+          </section>
+        </div>
       </section>
     </main>
-
-    <footer class="ml-footer">
-      <span>Outputs: CVI prediction, label classification, anomaly detection, feature influence.</span>
-      <span>Guardrail: analytical support only — not absolute forecasting or direct causality.</span>
-    </footer>
   </div>
   <script src="dashboard.js"></script>
 </body>

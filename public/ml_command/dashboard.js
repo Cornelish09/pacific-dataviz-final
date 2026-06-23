@@ -29,8 +29,8 @@ const state = {
   }
 };
 
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+const $ = selector => document.querySelector(selector);
+const $$ = selector => Array.from(document.querySelectorAll(selector));
 
 async function loadJSON(path) {
   const res = await fetch(path);
@@ -94,26 +94,27 @@ function commonChartOptions(extra = {}) {
           color: THEME.muted,
           usePointStyle: true,
           pointStyle: 'circle',
-          font: { family: 'Manrope', size: 10, weight: '700' }
+          padding: 14,
+          font: { family: 'Manrope', size: 10, weight: '800' }
         }
       },
       tooltip: {
-        backgroundColor: 'rgba(21,32,51,0.92)',
+        backgroundColor: 'rgba(21,32,51,0.93)',
         titleColor: THEME.paper,
         bodyColor: THEME.paper,
         borderColor: 'rgba(251,247,236,0.16)',
         borderWidth: 1,
-        padding: 10,
+        padding: 11,
         displayColors: true
       }
     },
     scales: {
       x: {
-        ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '700' } },
+        ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '800' } },
         grid: { color: THEME.line }
       },
       y: {
-        ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '700' } },
+        ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '800' } },
         grid: { color: THEME.line }
       }
     },
@@ -127,7 +128,7 @@ function latestSB() {
 
 function updateKpis() {
   const countries = state.summary?.data?.countries ?? state.scoreboard.length;
-  const critical = state.scoreboard.filter(row => row.label === 'critical' || row.label_predicted === 'critical').length;
+  const critical = state.scoreboard.filter(row => (row.label || row.label_predicted) === 'critical').length;
   const atRisk = state.scoreboard.filter(row => (row.label || row.label_predicted) === 'at_risk').length;
   const anomalies = state.summary?.task3?.total_anomalies ?? state.anomaly.length;
   const sb = latestSB();
@@ -137,6 +138,27 @@ function updateKpis() {
   $('#kpi-anomalies').textContent = anomalies;
   $('#kpi-sb-cvi').textContent = fmt(sb.CVI, 3);
   $('#kpi-sb-label').textContent = `Solomon Islands · ${labelText(sb.label_predicted || sb.label)}`;
+}
+
+function renderScoreboardHighlights() {
+  const ranked = state.scoreboard.slice().sort((a, b) => Number(b.CVI || 0) - Number(a.CVI || 0));
+  const sb = latestSB();
+  const sbRank = ranked.findIndex(row => row.country_code === 'SB') + 1;
+  const top = ranked[0] || {};
+  const anomalyCounts = {};
+  state.anomaly.forEach(row => {
+    const key = row.country_name || row.country_code;
+    anomalyCounts[key] = (anomalyCounts[key] || 0) + 1;
+  });
+  const anomalyLeader = Object.entries(anomalyCounts).sort((a, b) => b[1] - a[1])[0] || ['—', 0];
+  const topFeature = state.fi[0] || {};
+
+  $('#scoreboard-highlights').innerHTML = `
+    <article class="insight-card"><b>Highest CVI</b><strong>${esc(top.country_code || '—')}</strong><span>${esc(top.country_name || '')} · ${fmt(top.CVI, 3)}</span></article>
+    <article class="insight-card"><b>Solomon rank</b><strong>#${sbRank || '—'}</strong><span>CVI ${fmt(sb.CVI, 3)} · ${esc(labelText(sb.label_predicted || sb.label))}</span></article>
+    <article class="insight-card"><b>Anomaly leader</b><strong>${esc(anomalyLeader[1])}</strong><span>${esc(anomalyLeader[0])} flags</span></article>
+    <article class="insight-card"><b>Top feature</b><strong>${Math.round(Number(topFeature.importance || 0) * 100)}%</strong><span>${esc(featureName(topFeature.feature))}</span></article>
+  `;
 }
 
 function renderScoreboardCards(filter = 'all') {
@@ -177,11 +199,10 @@ function renderScoreboardChart(filter = 'all') {
   const data = (filter === 'all'
     ? state.scoreboard
     : state.scoreboard.filter(row => (row.label || row.label_predicted) === filter)
-  ).slice().sort((a, b) => Number(b.CVI || 0) - Number(a.CVI || 0)).slice(0, 12);
+  ).slice().sort((a, b) => Number(b.CVI || 0) - Number(a.CVI || 0)).slice(0, 14);
 
   destroyChart('scoreboard');
-  const ctx = $('#chart-scoreboard');
-  state.charts.scoreboard = new Chart(ctx, {
+  state.charts.scoreboard = new Chart($('#chart-scoreboard'), {
     type: 'bar',
     data: {
       labels: data.map(row => row.country_code),
@@ -189,7 +210,7 @@ function renderScoreboardChart(filter = 'all') {
         label: 'CVI',
         data: data.map(row => Number(row.CVI || 0)),
         backgroundColor: data.map(row => modelColor(row.label || row.label_predicted)),
-        borderRadius: 9,
+        borderRadius: 10,
         borderSkipped: false
       }]
     },
@@ -211,13 +232,13 @@ function renderScoreboardChart(filter = 'all') {
       },
       scales: {
         x: {
-          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '700' } },
+          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '800' } },
           grid: { color: THEME.line },
           min: 0,
           max: Math.max(0.7, ...data.map(row => Number(row.CVI || 0))) + 0.03
         },
         y: {
-          ticks: { color: THEME.inkSoft, font: { family: 'Manrope', size: 10, weight: '800' } },
+          ticks: { color: THEME.inkSoft, font: { family: 'Manrope', size: 10, weight: '900' } },
           grid: { display: false }
         }
       }
@@ -257,6 +278,20 @@ function populateCountrySelects() {
 
   primary.addEventListener('change', () => renderTimeline());
   compare.addEventListener('change', () => renderTimeline());
+}
+
+function renderTimelineSnapshot(d) {
+  const n = d.years.length - 1;
+  const previous = Math.max(0, n - 5);
+  const delta = Number(d.CVI?.[n]) - Number(d.CVI?.[previous]);
+  const direction = delta > 0 ? 'Rising' : delta < 0 ? 'Falling' : 'Stable';
+  const anomalyYears = state.anomaly.filter(row => row.country_code === $('#timeline-country').value).length;
+  $('#timeline-snapshot').innerHTML = `
+    <article class="snapshot-card"><b>Country</b><strong>${esc($('#timeline-country').value)}</strong><span>${esc(d.name)}</span></article>
+    <article class="snapshot-card"><b>Latest CVI</b><strong>${fmt(d.CVI?.[n], 3)}</strong><span>${esc(labelText(d.label?.[n]))}</span></article>
+    <article class="snapshot-card"><b>5-year movement</b><strong>${esc(direction)}</strong><span>${fmt(delta, 4)} CVI change</span></article>
+    <article class="snapshot-card"><b>Anomaly events</b><strong>${anomalyYears}</strong><span>flags across timeline</span></article>
+  `;
 }
 
 function renderTimeline() {
@@ -315,13 +350,17 @@ function renderTimeline() {
     type: 'line',
     data: { labels: d1.years, datasets },
     options: commonChartOptions({
+      plugins: {
+        ...commonChartOptions().plugins,
+        legend: { position: 'bottom', labels: commonChartOptions().plugins.legend.labels }
+      },
       scales: {
         x: {
-          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '700' } },
+          ticks: { color: THEME.muted, maxRotation: 0, autoSkip: true, font: { family: 'Manrope', size: 10, weight: '800' } },
           grid: { color: THEME.line }
         },
         y: {
-          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '700' } },
+          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '800' } },
           grid: { color: THEME.line },
           suggestedMin: 0.2,
           suggestedMax: 0.7,
@@ -331,6 +370,7 @@ function renderTimeline() {
     })
   });
 
+  renderTimelineSnapshot(d1);
   renderTimelineDetails(d1);
 }
 
@@ -370,6 +410,17 @@ function renderTimelineDetails(d) {
   `;
 }
 
+function renderAnomalySummary(data = state.anomaly) {
+  const iso = data.filter(row => row.iso_anomaly).length;
+  const lof = data.filter(row => row.lof_anomaly).length;
+  const zsc = data.filter(row => row.zscore_anomaly).length;
+  $('#anomaly-summary').innerHTML = `
+    <article class="anom-summary-card"><b>Isolation forest</b><strong>${iso}</strong><span>density-based outlier flags</span></article>
+    <article class="anom-summary-card"><b>LOF</b><strong>${lof}</strong><span>local outlier factor flags</span></article>
+    <article class="anom-summary-card"><b>Z-score</b><strong>${zsc}</strong><span>statistical deviation flags</span></article>
+  `;
+}
+
 function renderAnomalies(data = state.anomaly) {
   const host = $('#anomaly-list');
   const count = $('#anomaly-count');
@@ -394,6 +445,8 @@ function renderAnomalies(data = state.anomaly) {
       </article>
     `;
   }).join('');
+
+  renderAnomalySummary(data);
 }
 
 function renderAnomalyChart(data = state.anomaly) {
@@ -415,7 +468,7 @@ function renderAnomalyChart(data = state.anomaly) {
         backgroundColor: rows.map((_, i) => i < 3 ? 'rgba(184,104,80,0.78)' : 'rgba(36,78,92,0.62)'),
         borderColor: rows.map((_, i) => i < 3 ? THEME.risk : THEME.coast),
         borderWidth: 1,
-        borderRadius: 8,
+        borderRadius: 9,
         borderSkipped: false
       }]
     },
@@ -427,11 +480,11 @@ function renderAnomalyChart(data = state.anomaly) {
       },
       scales: {
         x: {
-          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '700' } },
+          ticks: { color: THEME.muted, font: { family: 'Manrope', size: 10, weight: '800' } },
           grid: { color: THEME.line }
         },
         y: {
-          ticks: { color: THEME.inkSoft, font: { family: 'Manrope', size: 10, weight: '800' } },
+          ticks: { color: THEME.inkSoft, font: { family: 'Manrope', size: 10, weight: '900' } },
           grid: { display: false }
         }
       }
@@ -495,7 +548,7 @@ function renderFeatureImportance() {
         backgroundColor: rows.map((_, i) => i < 2 ? 'rgba(211,175,99,0.82)' : 'rgba(36,78,92,0.64)'),
         borderColor: rows.map((_, i) => i < 2 ? THEME.gold : THEME.coast),
         borderWidth: 1,
-        borderRadius: 8,
+        borderRadius: 9,
         borderSkipped: false
       }]
     },
@@ -515,13 +568,13 @@ function renderFeatureImportance() {
         x: {
           ticks: {
             color: THEME.muted,
-            font: { family: 'Manrope', size: 10, weight: '700' },
+            font: { family: 'Manrope', size: 10, weight: '800' },
             callback: value => Math.round(value * 100) + '%'
           },
           grid: { color: THEME.line }
         },
         y: {
-          ticks: { color: THEME.inkSoft, font: { family: 'Manrope', size: 10, weight: '800' } },
+          ticks: { color: THEME.inkSoft, font: { family: 'Manrope', size: 10, weight: '900' } },
           grid: { display: false }
         }
       }
@@ -538,7 +591,6 @@ function setupTabs() {
       const tab = button.dataset.tab;
       $(`#tab-${tab}`).classList.add('active');
 
-      // Force Chart.js resize after tab becomes visible.
       requestAnimationFrame(() => {
         Object.values(state.charts).forEach(chart => chart && chart.resize());
       });
@@ -567,6 +619,7 @@ async function init() {
   populateCountrySelects();
   setupAnomalySearch();
 
+  renderScoreboardHighlights();
   renderScoreboardCards('all');
   renderScoreboardChart('all');
   renderTimeline();
