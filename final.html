@@ -13411,7 +13411,7 @@
       box-shadow: 0 34px 100px color-mix(in srgb, var(--chapter-accent) 18%, rgba(21, 32, 51, 0.16)) !important;
     }
 
-    /* Opening dibuat seperti penutup: card editorial tengah, bukan panel samping. */
+    /* Opening is built like the closing scene: a centered editorial card, not a side panel. */
     body.scene-hero .atlas-shell {
       grid-template-columns: 1fr !important;
       grid-template-rows: minmax(0, 1fr) !important;
@@ -13507,7 +13507,7 @@
       transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /* Dropdown island tetap ringkas dan tidak menutup peta. */
+    /* The island dropdown stays compact and does not cover the map. */
     .map-stage-header {
       grid-template-columns: minmax(0, 1fr) auto !important;
       align-items: center !important;
@@ -13543,7 +13543,7 @@
       z-index: 120 !important;
     }
 
-    /* Exposure pathway: hapus tampilan Line→Risk dan ganti menjadi visual yang stabil. */
+    /* Exposure pathway: remove the Line→Risk view and replace it with a stable visual. */
     body.scene-exposure .metric-card {
       overflow: hidden !important;
       background:
@@ -13824,7 +13824,7 @@
   <div id="loadingScreen" class="loading-screen">
     <div class="loading-card">
       <h1>Preparing the atlas stage</h1>
-      <p>Memuat coastline Solomon Islands, data tekanan laut, dampak manusia, emisi, dan ketahanan. Peta akan menjadi visual utama, bukan background.</p>
+      <p>Loading the Solomon Islands coastline, ocean-pressure data, human impact data, emissions, and resilience. The map will be the main visual, not a background.</p>
     </div>
   </div>
 
@@ -13852,19 +13852,19 @@
       <article id="storyCard" class="story-card animate-in">
         <p id="chapterIndex" class="chapter-index">Opening</p>
         <h1 id="storyTitle">The coast is the main stage.</h1>
-        <p id="storyBody">Di versi ini, peta tidak lagi dijadikan background. Peta menjadi visualisasi utama yang dibaca bersama narasi, data, dan timeline.</p>
+        <p id="storyBody">In this version, the map is no longer treated as a background. It becomes the main visualization, read together with narrative, data, and the timeline.</p>
 
         <div class="plain-row">
           <b>What this means</b>
-          <span id="storyMeaning">Garis pantai dibaca sebagai batas ruang hidup, bukan hiasan di belakang teks.</span>
+          <span id="storyMeaning">The coastline is read as a boundary of lived space, not decoration behind the text.</span>
         </div>
 
         <div class="plain-row">
           <b>Why it matters</b>
-          <span id="storyWhy">Audience bisa fokus pada perubahan garis pantai tanpa tertutup panel besar.</span>
+          <span id="storyWhy">The audience can focus on coastline change without large panels covering the view.</span>
         </div>
 
-        <div id="storyGuardrail" class="story-hint">Guardrail: project ini tidak mengklaim semua pulau tenggelam atau semua garis pantai menyusut.</div>
+        <div id="storyGuardrail" class="story-hint">Guardrail: this project does not claim that all islands are sinking or that every coastline is shrinking.</div>
       </article>
 
       <nav id="chapterNav" class="chapter-nav" aria-label="Chapter navigation"></nav>
@@ -13916,7 +13916,7 @@
 <aside class="map-callout">
             <small id="mapCalloutKicker">Map reading</small>
             <strong id="mapCalloutTitle">Read the line first</strong>
-            <p id="mapCalloutBody">Gunakan slider tahun untuk melihat snapshot garis pantai tanpa menutup visual utama.</p>
+            <p id="mapCalloutBody">Use the year slider to view coastline snapshots without covering the main visual.</p>
           </aside>
         </div>
 
@@ -13949,7 +13949,7 @@
       <section id="evidenceCard" class="evidence-card animate-in">
         <span class="label">Evidence layer</span>
         <h2 id="evidenceTitle">The Line</h2>
-        <p id="evidenceInsight">Garis pantai dipakai sebagai visual utama untuk membaca perubahan wilayah pesisir.</p>
+        <p id="evidenceInsight">The coastline is used as the main visual for reading coastal change.</p>
 
         <div class="evidence-grid">
           <div class="evidence-mini">
@@ -13959,7 +13959,7 @@
 
           <div class="evidence-mini">
             <b>Careful framing</b>
-            <span id="carefulFraming">Jangan menyatakan semua pulau tenggelam atau semua garis pantai menyusut.</span>
+            <span id="carefulFraming">Do not state that all islands are sinking or that every coastline is shrinking.</span>
           </div>
         </div>
       </section>
@@ -13977,7 +13977,7 @@
 
       <section class="method-card">
         <b>Method note</b>
-        <p id="methodNote">Selected years: 2000, 2005, 2010, 2015, 2020, 2023. Beberapa dataset memakai source year terdekat agar timeline tetap konsisten.</p>
+        <p id="methodNote">Selected years: 2000, 2005, 2010, 2015, 2020, 2023. Some datasets use the nearest available source year to keep the timeline consistent.</p>
       </section>
     </aside>
   </div>
@@ -13995,7 +13995,7 @@
       <div class="end-card">
         <span class="end-label">Final reading</span>
         <h2>Reading the line is a way to read the future.</h2>
-        <p>The Disappearing Line membaca perubahan garis pantai sebagai pintu masuk untuk memahami tekanan laut, exposure, human cost, climate justice, dan resilience.</p>
+        <p>The Disappearing Line reads coastline change as an entry point for understanding ocean pressure, exposure, human cost, climate justice, and resilience.</p>
         <div class="end-points" aria-label="Story summary">
           <span>Coastline</span>
           <span>Ocean pressure</span>
@@ -14030,16 +14030,16 @@
         index: "Opening",
         title: "The coast is the main stage.",
         htmlTitle: "The coast is the main <em>stage</em>.",
-        body: "Sebuah data story tentang garis pantai Solomon Islands: bagaimana batas laut dan darat dibaca bersama tekanan laut, dampak manusia, keadilan iklim, dan ketahanan.",
-        meaning: "Peta menjadi panggung utama untuk membaca bukti, bukan sekadar latar belakang visual.",
-        why: "Pembaca awam bisa mengikuti cerita dari satu pertanyaan sederhana: ketika garis berubah, apa yang ikut terdampak?",
-        guardrail: "Guardrail: project ini tidak mengklaim semua pulau tenggelam atau semua garis pantai menyusut.",
+        body: "A data story about the coastline of the Solomon Islands: how the boundary between sea and land can be read alongside ocean pressure, human impacts, climate justice, and resilience.",
+        meaning: "The map becomes the main stage for reading evidence, not just a visual background.",
+        why: "General readers can follow the story through one simple question: when the line changes, what changes with it?",
+        guardrail: "Guardrail: this project does not claim that all islands are sinking or that every coastline is shrinking.",
         evidenceTitle: "Atlas stage",
-        evidence: "Peta berada di tengah sebagai visual utama. Narasi dan data bergerak di sisi kiri-kanan agar tidak menutup coastline.",
+        evidence: "The map sits at the center as the main visual. Narrative and data move along the left and right sides so they do not cover the coastline.",
         dataset: "Landsat Coastlines + supporting climate and disaster datasets",
         calloutKicker: "Map-first story",
         calloutTitle: "The map is not decoration",
-        calloutBody: "Peta adalah tempat utama audience membaca bukti visual."
+        calloutBody: "The map is where the audience reads the visual evidence."
       },
       line: {
         order: 1,
@@ -14048,16 +14048,16 @@
         index: "Chapter 1 — The Line",
         title: "The coast is not just a line.",
         htmlTitle: "The coast is not just a <em>line</em>.",
-        body: "Di wilayah kepulauan, garis pantai adalah batas antara laut dan ruang hidup. Perubahan kecil pada garis ini dapat mengubah cara kita membaca risiko pesisir.",
-        meaning: "Garis ini menunjukkan batas antara laut dan tempat manusia hidup.",
-        why: "Risiko pesisir sering dimulai dari perubahan kecil yang sulit dilihat tanpa data.",
-        guardrail: "Guardrail: visual ini adalah snapshot perubahan garis pantai, bukan klaim bahwa seluruh pulau menyusut.",
+        body: "In island regions, the coastline is the boundary between the ocean and lived space. Small changes in this line can change how we read coastal risk.",
+        meaning: "This line marks the boundary between the ocean and the places where people live.",
+        why: "Coastal risk often begins with small changes that are difficult to see without data.",
+        guardrail: "Guardrail: this visual is a snapshot of coastline change, not a claim that the entire island is shrinking.",
         evidenceTitle: "The Line",
-        evidence: "Garis pantai dipakai sebagai visual utama untuk menunjukkan bahwa batas darat-laut berhubungan dengan ruang hidup, akses, dan risiko pesisir.",
+        evidence: "The coastline is used as the main visual to show that the land-sea boundary is connected to lived space, access, and coastal risk.",
         dataset: "Landsat Coastlines",
         calloutKicker: "Coastline timeline",
         calloutTitle: "Compare the selected year",
-        calloutBody: "Garis solid menunjukkan tahun aktif. Garis putus-putus menunjukkan snapshot sebelumnya."
+        calloutBody: "The solid line shows the active year. The dashed line shows the previous snapshot."
       },
       water: {
         order: 2,
@@ -14066,16 +14066,16 @@
         index: "Chapter 2 — The Water",
         title: "The line moves inside a changing ocean.",
         htmlTitle: "The line moves inside a changing <em>ocean</em>.",
-        body: "Garis pantai tidak berdiri sendiri. Sea level anomaly dan sea surface temperature anomaly memberi konteks tekanan laut di sekitar wilayah pesisir.",
-        meaning: "Laut yang berubah memberi tekanan pada ruang pesisir.",
-        why: "Tanpa konteks laut, pembaca hanya melihat garis. Dengan konteks laut, pembaca melihat sistem.",
-        guardrail: "Guardrail: sea level dan SST adalah konteks tekanan iklim, bukan satu-satunya penyebab coastline change.",
+        body: "The coastline does not stand alone. Sea level anomaly and sea surface temperature anomaly provide context for ocean pressure around coastal areas.",
+        meaning: "A changing ocean puts pressure on coastal space.",
+        why: "Without ocean context, readers only see a line. With ocean context, readers see a system.",
+        guardrail: "Guardrail: sea level and SST are climate-pressure context, not the sole causes of coastline change.",
         evidenceTitle: "The Water",
-        evidence: "Data laut membantu membaca bahwa perubahan pesisir terjadi dalam lingkungan laut yang ikut berubah.",
+        evidence: "Ocean data helps show that coastal change happens within a changing marine environment.",
         dataset: "Sea level anomalies, Mean sea surface temperature anomalies",
         calloutKicker: "Ocean context",
         calloutTitle: "The coastline has context",
-        calloutBody: "Tekanan laut dan suhu permukaan laut dibaca sebagai konteks, bukan klaim kausal tunggal."
+        calloutBody: "Ocean pressure and sea surface temperature are read as context, not as a single causal claim."
       },
       exposure: {
         order: 3,
@@ -14084,16 +14084,16 @@
         index: "Chapter 3 — The Exposure",
         title: "Exposure turns geography into risk.",
         htmlTitle: "Exposure turns geography into <em>risk</em>.",
-        body: "Perubahan garis pantai menjadi penting ketika ia dekat dengan tempat tinggal, jalan, sekolah, sumber air, layanan publik, dan ekonomi lokal.",
-        meaning: "Risiko muncul saat manusia hidup dekat dengan batas yang berubah.",
-        why: "Masalahnya bukan sekadar daratan, tetapi akses, air, permukiman, dan habitability.",
-        guardrail: "Guardrail: jangan menyebut lokasi spesifik terdampak tanpa data penduduk atau infrastruktur.",
+        body: "Coastline change becomes important when it is close to homes, roads, schools, water sources, public services, and local economies.",
+        meaning: "Risk emerges when people live close to a changing boundary.",
+        why: "The issue is not only land, but also access, water, settlements, and habitability.",
+        guardrail: "Guardrail: do not name specific affected locations without population or infrastructure data.",
         evidenceTitle: "The Exposure",
-        evidence: "Bagian ini mengubah pembacaan dari bentuk garis menjadi risiko terhadap ruang hidup pesisir.",
+        evidence: "This section shifts the reading from the shape of the line to risk for coastal lived space.",
         dataset: "Landsat Coastlines + narrative framing",
         calloutKicker: "Exposure pathway",
         calloutTitle: "From coastline to daily life",
-        calloutBody: "Baca urutannya: batas pesisir berubah, ruang hidup makin dekat dengan tekanan, lalu akses dan aktivitas harian ikut terdampak."
+        calloutBody: "Read the sequence: the coastal boundary changes, lived space moves closer to pressure, then access and daily activities are affected."
       },
       human: {
         order: 4,
@@ -14102,16 +14102,16 @@
         index: "Chapter 4 — The Human Cost",
         title: "Pressure becomes human cost.",
         htmlTitle: "Pressure becomes <em>human cost</em>.",
-        body: "Dampak tidak berhenti di peta. Data orang terdampak dan kerugian ekonomi membantu menunjukkan bahwa risiko pesisir juga persoalan sosial dan ekonomi.",
-        meaning: "Ketika bencana terjadi, dampaknya terlihat pada manusia dan biaya pemulihan.",
-        why: "Di sini climate story berubah dari visual lingkungan menjadi persoalan kehidupan.",
-        guardrail: "Guardrail: data bencana dipakai sebagai konteks dampak, bukan bukti bahwa semua bencana disebabkan langsung oleh climate change.",
+        body: "The impact does not stop on the map. Data on affected people and economic losses helps show that coastal risk is also a social and economic issue.",
+        meaning: "When disasters occur, their impacts appear in people’s lives and recovery costs.",
+        why: "Here, the climate story shifts from an environmental visual to a question of lived experience.",
+        guardrail: "Guardrail: disaster data is used as impact context, not as proof that every disaster is directly caused by climate change.",
         evidenceTitle: "The Human Cost",
-        evidence: "Affected persons dan direct economic loss memberi konteks manusia dan ekonomi dari risiko bencana.",
+        evidence: "Affected persons and direct economic loss provide human and economic context for disaster risk.",
         dataset: "Disaster affected persons, Direct disaster economic loss",
         calloutKicker: "Impact evidence",
         calloutTitle: "From map to people",
-        calloutBody: "Chart di sisi kanan membaca dampak manusia dan ekonomi tanpa menutup peta."
+        calloutBody: "The chart on the right reads human and economic impacts without covering the map."
       },
       ledger: {
         order: 5,
@@ -14120,16 +14120,16 @@
         index: "Chapter 5 — The Ledger",
         title: "Those at risk are not always those most responsible.",
         htmlTitle: "Those at risk are not always those most <em>responsible</em>.",
-        body: "Chapter ini membaca kontribusi emisi per kapita sebagai pintu masuk ke isu keadilan iklim.",
-        meaning: "Yang terdampak tidak selalu pihak yang paling besar berkontribusi.",
-        why: "Narasi climate justice perlu membaca risiko dan kontribusi secara hati-hati.",
-        guardrail: "Guardrail: jangan menyalahkan negara tertentu tanpa data pembanding yang jelas.",
+        body: "This chapter reads per-capita emissions contribution as an entry point into climate justice.",
+        meaning: "Those affected are not always those who contributed the most.",
+        why: "A climate-justice narrative must read risk and contribution carefully.",
+        guardrail: "Guardrail: do not blame a specific country without clear comparative data.",
         evidenceTitle: "The Ledger",
-        evidence: "GHG emissions per capita membantu membangun narasi climate justice secara hati-hati.",
+        evidence: "GHG emissions per capita helps build a careful climate-justice narrative.",
         dataset: "GHG emissions per capita",
         calloutKicker: "Climate justice",
         calloutTitle: "Read contribution carefully",
-        calloutBody: "Bagian ini tidak mencari kambing hitam, tetapi membaca ketimpangan risiko dan kontribusi."
+        calloutBody: "This section is not looking for a scapegoat; it reads the imbalance between risk and contribution."
       },
       resilience: {
         order: 6,
@@ -14138,16 +14138,16 @@
         index: "Chapter 6 — What Holds",
         title: "The story should not end in loss.",
         htmlTitle: "The story should not end in <em>loss</em>.",
-        body: "Cerita ditutup dengan resilience. Renewable energy share dipakai sebagai pintu masuk untuk membicarakan ketahanan, adaptasi, dan tindakan berbasis data.",
-        meaning: "Cerita iklim yang baik tidak hanya menampilkan risiko, tetapi juga ruang untuk respons.",
-        why: "Audience perlu melihat bahwa data bisa mendukung ketahanan, bukan hanya rasa takut.",
-        guardrail: "Guardrail: renewable energy bukan solusi tunggal untuk seluruh risiko pesisir.",
+        body: "The story closes with resilience. Renewable energy share is used as an entry point for discussing resilience, adaptation, and data-informed action.",
+        meaning: "A strong climate story does not only show risk; it also leaves room for response.",
+        why: "The audience needs to see that data can support resilience, not only fear.",
+        guardrail: "Guardrail: renewable energy is not a single solution for all coastal risks.",
         evidenceTitle: "What Holds",
-        evidence: "Renewable energy share menjadi konteks resilience dan adaptasi, bukan klaim solusi tunggal.",
+        evidence: "Renewable energy share becomes context for resilience and adaptation, not a claim of a single solution.",
         dataset: "Renewable energy share",
         calloutKicker: "Resilience",
         calloutTitle: "End with what holds",
-        calloutBody: "Penutup diarahkan ke ketahanan dan adaptasi, bukan fatalisme."
+        calloutBody: "The closing points toward resilience and adaptation, not fatalism."
       },
       ml: {
         order: 7,
@@ -14156,16 +14156,16 @@
         index: "Analytical Layer — ML Command",
         title: "ML command center.",
         htmlTitle: "ML command <em>center</em>.",
-        body: "Scoreboard, timeline, anomaly review, dan model evidence ditampilkan sebagai fitur interaktif khusus. Warna dan layout disesuaikan dengan atlas utama.",
-        meaning: "ML membantu membaca 21 wilayah Pasifik melalui CVI, anomaly flags, feature influence, dan performa model.",
-        why: "Pembaca bisa eksplor output model tanpa meninggalkan narasi utama The Disappearing Line.",
-        guardrail: "Guardrail: model adalah analytical lens, bukan klaim kausalitas langsung dan bukan prediksi absolut masa depan.",
+        body: "Scoreboard, timeline, anomaly review, and model evidence are presented as dedicated interactive features. The color and layout are aligned with the main atlas.",
+        meaning: "ML helps read 21 Pacific territories through CVI, anomaly flags, feature influence, and model performance.",
+        why: "Readers can explore model outputs without leaving the main narrative of The Disappearing Line.",
+        guardrail: "Guardrail: the model is an analytical lens, not a direct causal claim or an absolute future prediction.",
         evidenceTitle: "Themed ML Command",
-        evidence: "Interaksi ML memakai scoreboard, timeline, anomalies, dan model evidence. Desain biru bawaan tidak dipakai.",
+        evidence: "The ML interaction uses scoreboard, timeline, anomalies, and model evidence. The original blue dashboard design is not used.",
         dataset: "ML outputs: scoreboard, CVI timeline, anomaly flags, feature importance, model summary",
         calloutKicker: "Interactive ML layer",
         calloutTitle: "Explore the model evidence",
-        calloutBody: "Gunakan tab ML command untuk membaca output model secara interaktif."
+        calloutBody: "Use the ML command tabs to read model outputs interactively."
       },
       closing: {
         order: 8,
@@ -14174,16 +14174,16 @@
         index: "Closing",
         title: "Reading the line is a way to read the future.",
         htmlTitle: "Reading the line is a way to read the <em>future</em>.",
-        body: "The Disappearing Line membaca data sebagai dasar memahami risiko, ketimpangan, dan ketahanan wilayah kepulauan.",
-        meaning: "Peta dan data membantu audience membaca masa depan pesisir secara bertanggung jawab.",
-        why: "Cerita kuat bukan yang paling dramatis, tetapi yang paling jelas dan jujur.",
-        guardrail: "Guardrail: tidak ada proyeksi 2050 tanpa metodologi yang jelas.",
+        body: "The Disappearing Line reads data as a basis for understanding risk, inequality, and resilience in island territories.",
+        meaning: "Maps and data help the audience read coastal futures responsibly.",
+        why: "A strong story is not the most dramatic one, but the clearest and most honest.",
+        guardrail: "Guardrail: no 2050 projection is shown without a clear methodology.",
         evidenceTitle: "Closing",
-        evidence: "Setiap chapter dipasangkan dengan dataset dan guardrail agar narasi tetap bertanggung jawab.",
+        evidence: "Each chapter is paired with a dataset and a guardrail so the narrative remains responsible.",
         dataset: "Full story pack",
         calloutKicker: "Closing",
         calloutTitle: "Data as responsibility",
-        calloutBody: "Cerita ditutup dengan batasan ilmiah dan arah respons."
+        calloutBody: "The story closes with scientific limits and a direction for response."
       }
     };
 
@@ -14415,7 +14415,7 @@
         const bounds = this.focusAreas[this.selectedIsland];
 
         // Jangan reset zoom ketika timeline sedang Play atau ketika tahun berubah otomatis.
-        // Zoom/focus hanya terjadi saat user menekan Fit, mengganti island, atau saat initial fit.
+        // Zoom/focus only happens when the user presses Fit, changes island, or during the initial fit.
         const shouldFit = fit || !this.lastFit;
 
         if (bounds) {
@@ -14766,22 +14766,22 @@
           {
             n: "01", x: 42, y: 42, w: 214, color: "#244e5c",
             title: "Coastline shifts",
-            lines: ["Batas laut-darat", "mulai berubah"]
+            lines: ["The land-sea boundary", "begins to shift"]
           },
           {
             n: "02", x: 66, y: 110, w: 214, color: "#d3af63",
             title: "Living space exposed",
-            lines: ["Rumah, jalan, dan", "ruang hidup makin dekat"]
+            lines: ["Homes, roads, and", "lived space move closer"]
           },
           {
             n: "03", x: 42, y: 178, w: 214, color: "#b86850",
             title: "Access gets fragile",
-            lines: ["Akses, air, dan layanan", "jadi lebih rentan"]
+            lines: ["Access, water, and services", "become more vulnerable"]
           },
           {
             n: "04", x: 66, y: 246, w: 214, color: "#152033",
             title: "Risk becomes daily",
-            lines: ["Risiko terasa dalam", "kehidupan sehari-hari"]
+            lines: ["Risk becomes visible in", "everyday life"]
           }
         ];
 
@@ -15309,7 +15309,7 @@
       const loading = Dom.id("loadingScreen");
       loading.classList.remove("hide");
       loading.querySelector("h1").textContent = "Story data not found";
-      loading.querySelector("p").textContent = "Pastikan file story pack ada di public/data/story, file ML ada di public/data/ml/ml_lens_data.json, dan server dijalankan dari root folder VISDAT.";
+      loading.querySelector("p").textContent = "Make sure the story pack is in public/data/story, the ML file is in public/data/ml/ml_lens_data.json, and the server is running from the VISDAT root folder.";
     });
   </script>
 </body>
